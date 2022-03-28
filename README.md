@@ -108,6 +108,22 @@ end
 
 Use `<%= timeago_tag(some_time) %>` in your views (see the helper method documentation for more details).
 
+### NDRS Styling
+
+To use the NDRS Styling:
+
+require it after ndr_ui and after any bootstrap styling. For example:
+
+In `app/assets/stylesheets/application.scss`:
+
+```scss
+/*
+*= require bootstrap-table
+*= require ndr_ui
+*= require ndr_ui/ndrs_styling
+*/
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
