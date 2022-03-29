@@ -36,4 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'mocha', '~> 1.1.0'
   spec.add_development_dependency 'puma'
+  spec.add_development_dependency 'net-smtp'
 end
