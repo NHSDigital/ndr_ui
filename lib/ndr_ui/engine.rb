@@ -11,7 +11,7 @@ module NdrUi
     # directly by templates without issue, rather than needing to go via
     # an asset manifest in the host.
     initializer 'ndr_ui.assets.precompile' do |app|
-      app.config.assets.precompile += %w(*.scss *.js *.gif)
+      app.config.assets.precompile += %w[*.scss *.js *.gif *.svg]
     end
 
     # We configure the generator of the host app

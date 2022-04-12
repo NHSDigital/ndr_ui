@@ -1,0 +1,185 @@
+:root {
+  --ndrs-nav-height: 102px;
+  --ndrs-nav-bar-padding:40px 10px; /* This is for the navbar alignment */
+  --ndrs-nav-collapsed-height: 40px;
+  --ndrs-nav-bar-collapsed-padding:10px; /* This is for the navbar alignment */
+  --ndrs-footer-height:2.5rem;
+  --bright-navy-coal-20-tint:#87D8DD;
+  --black:#353535;
+}
+
+.navbar-ndrs {
+  border-color: #D5DADE;
+  background-color: white;
+}
+.navbar-default, .navbar-ndrs .open a {
+  background-image: none !important;
+}
+
+#page-container-ndrs {
+  position: relative;
+  min-height: 75vh;
+}
+
+#content-wrap {
+  padding-bottom: var(--ndrs-footer-height);
+}
+
+.ndrs-logo {
+  margin: 2rem 0;
+  height: 36px;
+  width: 62px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  order: 1;
+  z-index: 101;
+}
+
+.navbar-header .navbar-brand {
+  height: var(--ndrs-nav-height);
+}
+
+.navbar-brand {
+  font-weight: 750;
+}
+
+.navbar-ndrs .navbar-brand-ndrs {
+  color: #218183;
+  height: var(--ndrs-nav-height);
+  padding: var(--ndrs-nav-bar-padding);
+  text-align: center;
+}
+
+.navbar-ndrs .navbar-brand-ndrs:active,
+.navbar-ndrs .navbar-brand-ndrs:focus,
+.navbar-ndrs .navbar-brand-ndrs:hover {
+  background-color: var(--bright-navy-coal-20-tint);
+  color: var(--black);
+  border-bottom: 2px solid #231f20;
+}
+
+.navbar-ndrs .container .navbar-brand {
+  margin-left: 0px;
+}
+
+.navbar-ndrs .navbar-nav > li > a {
+  height: var(--ndrs-nav-height);
+  padding: var(--ndrs-nav-bar-padding);
+  text-align: center;
+}
+
+.navbar-ndrs div[aria-expanded="true"] li a {
+  height: var(--ndrs-nav-collapsed-height);
+  padding: var(--ndrs-nav-bar-collapsed-padding);
+}
+
+.navbar-ndrs .navbar-nav li a {
+  color: #218183;
+  font-weight: bold;
+}
+.navbar-ndrs .navbar-nav li a:active,
+.navbar-ndrs .navbar-nav li a:focus,
+.navbar-ndrs .navbar-nav li a:hover {
+  background-color: var(--bright-navy-coal-20-tint);
+  color: var(--black);
+  border-bottom: 2px solid #231f20;
+}
+
+.navbar-ndrs .navbar-nav li a:active .ndrs-a-navbar-item-label,
+.navbar-ndrs .navbar-nav li a:focus .ndrs-a-navbar-item-label,
+.navbar-ndrs .navbar-nav li a:hover .ndrs-a-navbar-item-label {
+  background-color: var(--bright-navy-coal-20-tint);
+  color: var(--black);
+  border-bottom: 2px solid #231f20;
+}
+.navbar-ndrs .navbar-nav .open .dropdown-menu > li > a {
+  color: #218183;
+  font-weight: bold;
+}
+.navbar-ndrs .navbar-nav .open .dropdown-menu > li > a:active,
+.navbar-ndrs .navbar-nav .open .dropdown-menu > li > a:focus,
+.navbar-ndrs .navbar-nav .open .dropdown-menu > li > a:hover {
+  background-color: var(--bright-navy-coal-20-tint);
+  color: var(--black);
+  border-bottom: 2px solid #231f20;
+}
+.navbar-ndrs .navbar-nav > .open > a {
+  color: #218183;
+  font-weight: bold;
+  background-color: var(--bright-navy-coal-20-tint);
+}
+.navbar-ndrs .navbar-nav > .open > a:active,
+.navbar-ndrs .navbar-nav > .open > a:focus,
+.navbar-ndrs .navbar-nav > .open > a:hover {
+  background-color: var(--bright-navy-coal-20-tint);
+  color: var(--black);
+  border-bottom: 2px solid #231f20;
+}
+.nav .open > a,
+.nav .open > a:active,
+.nav .open > a:focus,
+.nav .open > a:hover {
+  background-color: var(--bright-navy-coal-20-tint);
+  color: var(--black);
+  border-bottom: 2px solid #231f20;
+}
+.navbar-ndrs .dropdown-menu > .active > a {
+  background-color: var(--bright-navy-coal-20-tint);
+  color: var(--black);
+  border-bottom: 2px solid #231f20;
+}
+
+.navbar-ndrs .navbar-toggle {
+  /* (102px - button height 34px) / 2 = 34px */
+  margin-top: 34px;
+  padding: 9px 10px !important;
+}
+
+.footer-ndrs-link {
+  color: var(--black);
+  border-bottom: 2px solid #231f20;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  height: var(--ndrs-footer-height);
+}
+
+#footer-ndrs-logo {
+  height: 64px;
+  width: 110px;
+}
+
+#footer-logo-partition {
+  height: 55px;
+  margin: 0px 20px;
+}
+
+#footer-nhsd-logo {
+  height: 96px;
+  width: 73px;
+}
+
+#working-together {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+#legal {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}

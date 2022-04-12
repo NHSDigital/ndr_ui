@@ -1,5 +1,8 @@
 ## [Unreleased]
 *no unreleased changes*
+## 3.3.0 / 2022-03-28
+### Added
+* Added styling for NDRS navbars and footers
 
 ## 3.2.0 / 2021-05-10
 ### Fixed
