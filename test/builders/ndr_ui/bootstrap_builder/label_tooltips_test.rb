@@ -5,12 +5,29 @@ class LabelTooltipsTest < ActionView::TestCase
   tests ActionView::Helpers::FormHelper
   include NdrUi::BootstrapHelper
 
+  def setup
+    # Keyword arguments used when ActionView::Helpers::TranslationHelper calls I18n.translate
+    @expected_kwargs_no_default = if Rails.version < '6.1'
+                                    { raise: true }
+                                  else
+                                    # Expect to be called with a kwarg, using the private constant
+                                    # ActionView::Helpers::TranslationHelper::MISSING_TRANSLATION
+                                    { default: ActionView::Helpers::TranslationHelper.
+                                      const_get(:MISSING_TRANSLATION) }
+                                  end
+    @expected_kwargs_with_default = if Rails.version < '6.1'
+                                      { raise: true, default: [] }
+                                    else
+                                      @expected_kwargs_no_default
+                                    end
+  end
+
   test 'should include tooltips when translations exist' do
     post = Post.new
     NdrUi::BootstrapBuilder.any_instance.stubs(:display?).returns(true)
 
     I18n.expects(:translate).
-      with(:'tooltips.post.created_at', raise: true).
+      with(:'tooltips.post.created_at') { |*_args, kwargs| kwargs == @expected_kwargs_no_default }.
       returns('Tooltip')
 
     @output_buffer =
@@ -26,7 +43,7 @@ class LabelTooltipsTest < ActionView::TestCase
     NdrUi::BootstrapBuilder.any_instance.stubs(:display?).returns(true)
 
     I18n.expects(:translate).
-      with(:'tooltips.bomb', raise: true, default: []).
+      with(:'tooltips.bomb') { |*_args, kwargs| kwargs == @expected_kwargs_with_default }.
       returns('Dangerous')
 
     @output_buffer =
@@ -72,7 +89,7 @@ class LabelTooltipsTest < ActionView::TestCase
     NdrUi::BootstrapBuilder.any_instance.stubs(:display?).returns(true)
 
     I18n.expects(:translate).
-      with(:'tooltips.post.created_at', raise: true).
+      with(:'tooltips.post.created_at') { |*_args, kwargs| kwargs == @expected_kwargs_no_default }.
       returns(one: 'One', other: 'Other')
 
     @output_buffer =

@@ -66,7 +66,8 @@ class InlineErrorsAndWarningsTest < ActionView::TestCase
 
   test 'should display warnings' do
     post = Post.new
-    post.warnings[:created_at] << 'some' << 'message'
+    post.warnings.add(:created_at, 'some')
+    post.warnings.add(:created_at, 'message')
 
     bootstrap_form_for post do |form|
       assert_dom_equal(
