@@ -214,12 +214,12 @@ file safety:
     safe_revision: 2d1466336a251d5aeb5fb5e8617e6b1c5c3194c2
   gemfiles/Gemfile.rails61:
     comments: 
-    reviewed_by:
-    safe_revision:
+    reviewed_by: kenny.lee
+    safe_revision: f52d5500ce1cb70159cab2331c7a232ce47e20ff
   gemfiles/Gemfile.rails70:
     comments: 
-    reviewed_by:
-    safe_revision:
+    reviewed_by: kenny.lee
+    safe_revision: f52d5500ce1cb70159cab2331c7a232ce47e20ff
   lib/ndr_ui.rb:
     comments: 
     reviewed_by: josh.pencheon
