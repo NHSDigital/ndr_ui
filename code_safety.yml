@@ -30,8 +30,8 @@ file safety:
     safe_revision: ff406f88431f9b0bd46d162f3077ca7d94571af5
   CHANGELOG.md:
     comments: 
-    reviewed_by: brian.shand
-    safe_revision: 4e14fe6d9f2db8789b5b4845d205c17fe86a2385
+    reviewed_by: kenny.lee
+    safe_revision: 2e7c6057b41430a400ed273d4f4ce04d7496d6fc
   CODE_OF_CONDUCT.md:
     comments: 
     reviewed_by: timgentry
@@ -64,6 +64,18 @@ file safety:
     comments: 
     reviewed_by: josh.pencheon
     safe_revision: 6d0851201d38c3e61592c249b91f44dbfb5942aa
+  app/assets/images/ndr_ui/logo-partition.svg:
+    comments: 
+    reviewed_by: kenny.lee
+    safe_revision: 2e7c6057b41430a400ed273d4f4ce04d7496d6fc
+  app/assets/images/ndr_ui/ndrs-logo-without-text.svg:
+    comments: 
+    reviewed_by: kenny.lee
+    safe_revision: 2e7c6057b41430a400ed273d4f4ce04d7496d6fc
+  app/assets/images/ndr_ui/nhs-digital-logo_nhs-blue_left.svg:
+    comments: 
+    reviewed_by: kenny.lee
+    safe_revision: 2e7c6057b41430a400ed273d4f4ce04d7496d6fc
   app/assets/javascripts/ndr_ui/.keep:
     comments: 
     reviewed_by: timgentry
@@ -92,6 +104,10 @@ file safety:
     comments: 
     reviewed_by: josh.pencheon
     safe_revision: 1a916bd06eeae606edbef011521c55839c07dd23
+  app/assets/stylesheets/ndr_ui/ndrs_styling.scss:
+    comments: 
+    reviewed_by: kenny.lee
+    safe_revision: 2e7c6057b41430a400ed273d4f4ce04d7496d6fc
   app/builders/ndr_ui/bootstrap/datepicker.rb:
     comments: 
     reviewed_by: josh.pencheon
@@ -196,6 +212,14 @@ file safety:
     comments: 
     reviewed_by: brian.shand
     safe_revision: 2d1466336a251d5aeb5fb5e8617e6b1c5c3194c2
+  gemfiles/Gemfile.rails61:
+    comments: 
+    reviewed_by:
+    safe_revision:
+  gemfiles/Gemfile.rails70:
+    comments: 
+    reviewed_by:
+    safe_revision:
   lib/ndr_ui.rb:
     comments: 
     reviewed_by: josh.pencheon
