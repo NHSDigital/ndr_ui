@@ -11,6 +11,10 @@
 .navbar-ndrs {
   border-color: #D5DADE;
   background-color: white;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border-width: 0 0 1px !important;
+  border-radius: 0px !important;
 }
 .navbar-default, .navbar-ndrs .open a {
   background-image: none !important;
