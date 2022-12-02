@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'NDR UI Rails Engine'
   spec.description   = 'Provides Rails applications with additional support for the ' \
                        'Twitter Bootstrap UI framework'
-  spec.homepage      = 'https://github.com/PublicHealthEngland/ndr_ui'
+  spec.homepage      = 'https://github.com/NHSDigital/ndr_ui'
   spec.license       = 'MIT'
 
   spec.files = Dir['{app,config,lib,vendor}/**/*', 'LICENSE.txt', 'Rakefile',
