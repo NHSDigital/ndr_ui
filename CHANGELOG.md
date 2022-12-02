@@ -1,5 +1,9 @@
 ## [Unreleased]
-*no unreleased changes*
+### Fixed
+* Support Ruby 3.1 and Rails 7.0
+* Drop support for Ruby 2.6
+* Replace Public Health England naming with NHS Digital
+
 ## 3.3.0 / 2022-03-28
 ### Added
 * Added styling for NDRS navbars and footers
