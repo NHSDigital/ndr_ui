@@ -1,4 +1,4 @@
-$LOAD_PATH.push File.expand_path('../lib', __FILE__)
+$LOAD_PATH.push File.expand_path('lib', __dir__)
 require 'ndr_ui/version'
 
 unless Gem::Version.new(Gem::VERSION) >= Gem::Version.new('3.0.2')
@@ -20,18 +20,18 @@ Gem::Specification.new do |spec|
   spec.files = Dir['{app,config,lib,vendor}/**/*', 'LICENSE.txt', 'Rakefile',
                    'README.md'] - ['.travis.yml']
 
-  spec.required_ruby_version = '>= 2.6.0'
+  spec.required_ruby_version = '>= 2.7.0'
 
-  spec.add_dependency 'rails', '>= 5.1', '< 7.0'
-  # spec.add_dependency 'sass' # Until using sprockets 4, which supports sassc properly...
+  spec.add_dependency 'rails', '>= 6.0', '< 7.1'
   spec.add_dependency 'bootstrap-sass', '~> 3.4.1'
   spec.add_dependency 'jquery-rails', '>= 4.1.0'
   spec.add_dependency 'sprockets', '>= 4.0'
+  spec.add_dependency 'sprockets-rails', '>= 3.0.0'
 
   spec.add_development_dependency 'sqlite3'
 
-  spec.add_development_dependency 'mocha', '~> 1.1.0'
-  spec.add_development_dependency 'ndr_dev_support', '>= 5.10.2'
+  spec.add_development_dependency 'mocha', '~> 2.0'
+  spec.add_development_dependency 'ndr_dev_support', '>= 6.0'
   spec.add_development_dependency 'net-smtp'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'puma'
