@@ -1,6 +1,1 @@
-inherit_from: 'https://raw.githubusercontent.com/PublicHealthEngland/ndr_dev_support/master/.rubocop.yml'
-
-AllCops:
-  Exclude:
-    - test/dummy/db/schema.rb
-  TargetRubyVersion: 2.7 # minimum we support
+require: ndr_dev_support
