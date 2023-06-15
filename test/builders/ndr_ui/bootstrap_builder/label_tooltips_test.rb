@@ -7,19 +7,11 @@ class LabelTooltipsTest < ActionView::TestCase
 
   def setup
     # Keyword arguments used when ActionView::Helpers::TranslationHelper calls I18n.translate
-    @expected_kwargs_no_default = if Rails.version < '6.1'
-                                    { raise: true }
-                                  else
-                                    # Expect to be called with a kwarg, using the private constant
-                                    # ActionView::Helpers::TranslationHelper::MISSING_TRANSLATION
-                                    { default: ActionView::Helpers::TranslationHelper.
-                                      const_get(:MISSING_TRANSLATION) }
-                                  end
-    @expected_kwargs_with_default = if Rails.version < '6.1'
-                                      { raise: true, default: [] }
-                                    else
-                                      @expected_kwargs_no_default
-                                    end
+    # Expect to be called with a kwarg, using the private constant
+    # ActionView::Helpers::TranslationHelper::MISSING_TRANSLATION
+    @expected_kwargs_no_default = { default: ActionView::Helpers::TranslationHelper.
+                                  const_get(:MISSING_TRANSLATION) }
+    @expected_kwargs_with_default = @expected_kwargs_no_default
   end
 
   test 'should include tooltips when translations exist' do
