@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'sprockets', '>= 4.0'
   spec.add_dependency 'sprockets-rails', '>= 3.0.0'
 
-  spec.add_development_dependency 'sqlite3', '~2.0'
+  spec.add_development_dependency 'sqlite3', '~> 2.0'
 
   spec.add_development_dependency 'mocha', '~> 2.0'
   spec.add_development_dependency 'ndr_dev_support', '>= 6.0'
