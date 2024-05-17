@@ -1,5 +1,17 @@
 ## [Unreleased]
+### Added
+* Support Ruby 3.2. Drop support for Ruby 2.7, Rails 6.0
 * Display line breaks for readonly textarea fields
+
+## 3.3.1 / 2022-12-01
+### Fixed
+* Support Ruby 3.1 and Rails 7.0
+* Drop support for Ruby 2.6, Rails 5.2
+* Replace Public Health England naming with NHS Digital
+
+## 3.3.0 / 2022-03-28
+### Added
+* Added styling for NDRS navbars and footers
 
 ## 3.2.0 / 2021-05-10
 ### Fixed

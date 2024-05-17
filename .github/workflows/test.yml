@@ -7,16 +7,17 @@ jobs:
     strategy:
       matrix:
         ruby-version:
-          - 2.6
-          - 2.7
-          - 3.0
+          - '3.0'
+          - '3.1'
+          - '3.2'
         gemfile:
-          - gemfiles/Gemfile.rails60
-        include:
-          # Continue testing Rails 5.2 against Ruby 2.6 for now...
-        - ruby-version: 2.6
-          gemfile: gemfiles/Gemfile.rails52
-
+          - gemfiles/Gemfile.rails61
+          - gemfiles/Gemfile.rails70
+        exclude:
+          # rails 7.0 requires ruby >= 2.7
+          # https://www.fastruby.io/blog/ruby/rails/versions/compatibility-table.html
+          - ruby-version: '2.6'
+            gemfile: 'gemfiles/Gemfile.rails70'
 
     name: Ruby ${{ matrix.ruby-version }} / Bundle ${{ matrix.gemfile }}
 

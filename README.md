@@ -1,6 +1,6 @@
-# NdrUi [![Build Status](https://github.com/publichealthengland/ndr_ui/workflows/Test/badge.svg)](https://github.com/publichealthengland/ndr_ui/actions?query=workflow%3Atest) [![Gem Version](https://badge.fury.io/rb/ndr_ui.svg)](https://rubygems.org/gems/ndr_ui) [![Documentation](https://img.shields.io/badge/ndr_ui-docs-blue.svg)](https://www.rubydoc.info/gems/ndr_ui)
+# NdrUi [![Build Status](https://github.com/NHSDigital/ndr_ui/workflows/Test/badge.svg)](https://github.com/NHSDigital/ndr_ui/actions?query=workflow%3Atest) [![Gem Version](https://badge.fury.io/rb/ndr_ui.svg)](https://rubygems.org/gems/ndr_ui) [![Documentation](https://img.shields.io/badge/ndr_ui-docs-blue.svg)](https://www.rubydoc.info/gems/ndr_ui)
 
-This is the Public Health England (PHE) National Disease Registration (NDR) User Interface rubygem,
+This is the NHS Digital (NHS-D) National Disease Registration (NDR) User Interface rubygem,
 providing a set of core features:
 
 1. jQuery
@@ -108,6 +108,22 @@ end
 
 Use `<%= timeago_tag(some_time) %>` in your views (see the helper method documentation for more details).
 
+### NDRS Styling
+
+To use the NDRS Styling:
+
+require it after ndr_ui and after any bootstrap styling. For example:
+
+In `app/assets/stylesheets/application.scss`:
+
+```scss
+/*
+*= require bootstrap-table
+*= require ndr_ui
+*= require ndr_ui/ndrs_styling
+*/
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -116,7 +132,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/PublicHealthEngland/ndr_ui.
+Bug reports and pull requests are welcome on GitHub at https://github.com/NHSDigital/ndr_ui.
 
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org/) code of conduct.
 

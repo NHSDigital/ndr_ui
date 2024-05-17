@@ -5,12 +5,21 @@ class LabelTooltipsTest < ActionView::TestCase
   tests ActionView::Helpers::FormHelper
   include NdrUi::BootstrapHelper
 
+  def setup
+    # Keyword arguments used when ActionView::Helpers::TranslationHelper calls I18n.translate
+    # Expect to be called with a kwarg, using the private constant
+    # ActionView::Helpers::TranslationHelper::MISSING_TRANSLATION
+    @expected_kwargs_no_default = { default: ActionView::Helpers::TranslationHelper.
+                                  const_get(:MISSING_TRANSLATION) }
+    @expected_kwargs_with_default = @expected_kwargs_no_default
+  end
+
   test 'should include tooltips when translations exist' do
     post = Post.new
     NdrUi::BootstrapBuilder.any_instance.stubs(:display?).returns(true)
 
     I18n.expects(:translate).
-      with(:'tooltips.post.created_at', raise: true).
+      with(:'tooltips.post.created_at') { |*_args, kwargs| kwargs == @expected_kwargs_no_default }.
       returns('Tooltip')
 
     @output_buffer =
@@ -26,7 +35,7 @@ class LabelTooltipsTest < ActionView::TestCase
     NdrUi::BootstrapBuilder.any_instance.stubs(:display?).returns(true)
 
     I18n.expects(:translate).
-      with(:'tooltips.bomb', raise: true, default: []).
+      with(:'tooltips.bomb') { |*_args, kwargs| kwargs == @expected_kwargs_with_default }.
       returns('Dangerous')
 
     @output_buffer =
@@ -72,7 +81,7 @@ class LabelTooltipsTest < ActionView::TestCase
     NdrUi::BootstrapBuilder.any_instance.stubs(:display?).returns(true)
 
     I18n.expects(:translate).
-      with(:'tooltips.post.created_at', raise: true).
+      with(:'tooltips.post.created_at') { |*_args, kwargs| kwargs == @expected_kwargs_no_default }.
       returns(one: 'One', other: 'Other')
 
     @output_buffer =

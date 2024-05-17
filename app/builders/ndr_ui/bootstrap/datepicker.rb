@@ -23,7 +23,7 @@ module NdrUi
       #       </span>
       #
       def datepicker_field(method, options = {})
-        date_value = object.send(method).try(:to_date).try(:to_s, :ui)
+        date_value = object.send(method).try(:to_date).try(:to_formatted_s, :ui)
 
         defaults = {
           value:          date_value,
