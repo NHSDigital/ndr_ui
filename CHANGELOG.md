@@ -1,5 +1,5 @@
 ## [Unreleased]
-* No unreleased changes
+* Bump jQuery to v3.7.0
 
 ## 4.0.0 / 2024-05-20
 ### Added
