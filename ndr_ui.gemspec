@@ -6,6 +6,7 @@ unless Gem::Version.new(Gem::VERSION) >= Gem::Version.new('3.0.2')
   raise 'Please update RubyGems to at least 3.0.2 - lower versions build a broken ndr_ui.gem!'
 end
 
+# rubocop:disable Gemspec/DevelopmentDependencies
 Gem::Specification.new do |spec|
   spec.name          = 'ndr_ui'
   spec.version       = NdrUi::VERSION
@@ -28,7 +29,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'sprockets', '>= 4.0'
   spec.add_dependency 'sprockets-rails', '>= 3.0.0'
 
-  spec.add_development_dependency 'sqlite3'
+  # Rails 7.0 and 7.1 do not support sqlite3 2.x; they specify gem "sqlite3", "~> 1.4"
+  # in lib/active_record/connection_adapters/sqlite3_adapter.rb
+  spec.add_development_dependency 'sqlite3', '~> 1.7'
 
   spec.add_development_dependency 'mocha', '~> 2.0'
   spec.add_development_dependency 'ndr_dev_support', '>= 6.0'
@@ -38,3 +41,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'simplecov'
 end
+# rubocop:enable Gemspec/DevelopmentDependencies
