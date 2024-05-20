@@ -1,8 +1,11 @@
 ## [Unreleased]
+* No unreleased changes
+
+## 4.0.0 / 2024-05-20
 ### Added
 * Support Ruby 3.2. Drop support for Ruby 2.7, Rails 6.0
 * Display line breaks for readonly textarea fields
-* bump jQuery to v3.0.0
+* Bump jQuery to v3.0.0
 
 ## 3.3.1 / 2022-12-01
 ### Fixed
