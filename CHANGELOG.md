@@ -1,6 +1,7 @@
 ## [Unreleased]
 ### Added
 * Support Ruby 3.2. Drop support for Ruby 2.7, Rails 6.0
+* Display line breaks for readonly textarea fields
 * bump jQuery to v3.0.0, set ndr_ui version to v4.0.0
 * bump jQuery to v3.7.0, set ndr_ui version to v4.1.0
 
