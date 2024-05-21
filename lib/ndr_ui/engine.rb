@@ -1,4 +1,3 @@
-require 'bootstrap-sass/engine'
 require 'jquery-rails'
 require 'sprockets/railtie'
 
