@@ -1,3 +1,4 @@
+require 'bootstrap/engine'
 require 'jquery-rails'
 require 'sprockets/railtie'
 
