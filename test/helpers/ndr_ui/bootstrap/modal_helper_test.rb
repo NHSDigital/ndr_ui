@@ -10,6 +10,7 @@ module NdrUi
           assert_select 'div.modal-content', 'Pear form'
         end
 
+        reset_output_buffer!
         @output_buffer = bootstrap_modal_dialog_tag(size: 'lg') { 'Pear form' }
         assert_select 'div.modal-dialog.modal-lg' do
           assert_select 'div.modal-content', 'Pear form'
@@ -58,6 +59,7 @@ module NdrUi
                         text: 'Close'
         end
 
+        reset_output_buffer!
         @output_buffer = bootstrap_modal_footer_tag('Non-readonly button text', readonly: false)
         assert_select 'div.modal-footer' do
           assert_select 'button.btn.btn-default',
@@ -77,6 +79,7 @@ module NdrUi
                         text: 'Close'
         end
 
+        reset_output_buffer!
         @output_buffer = bootstrap_modal_footer_tag(readonly: false) do
           button_tag('Non-readonly default', class: 'btn btn-default', "data-dismiss": 'modal') +
             button_tag('Non-readonly primary', class: 'btn btn-primary', "data-dismiss": 'modal')
@@ -99,6 +102,7 @@ module NdrUi
                         text: 'Close'
         end
 
+        reset_output_buffer!
         @output_buffer = bootstrap_modal_footer_tag(readonly: false)
         assert_select 'div.modal-footer' do
           assert_select 'button.btn.btn-default',
@@ -125,6 +129,7 @@ module NdrUi
           end
         end
 
+        reset_output_buffer!
         @output_buffer = bootstrap_modal_box('New Pear') { 'Pear form' }
         assert_select 'div.modal-dialog' do
           assert_select 'div.modal-content' do
@@ -151,6 +156,7 @@ module NdrUi
           end
         end
 
+        reset_output_buffer!
         @output_buffer = bootstrap_modal_box('New Pear', 'Pear form', readonly: false)
         assert_select 'div.modal-dialog' do
           assert_select 'div.modal-content' do
@@ -169,9 +175,11 @@ module NdrUi
         @output_buffer = bootstrap_modal_box('New Pear', 'Pear form', size: 'lg')
         assert_select 'div.modal-dialog.modal-lg'
 
+        reset_output_buffer!
         @output_buffer = bootstrap_modal_box('New Pear', size: 'lg') { 'Pear form' }
         assert_select 'div.modal-dialog.modal-lg'
 
+        reset_output_buffer!
         @output_buffer = bootstrap_modal_box('New Pear', 'Pear form', size: 'enormous')
         assert_select 'div.modal-dialog.modal-enormous', 0
       end
