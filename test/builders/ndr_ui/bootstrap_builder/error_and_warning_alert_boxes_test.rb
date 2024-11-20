@@ -78,7 +78,7 @@ class ErrorAndWarningAlertBoxesTest < ActionView::TestCase
     post.warnings.add(:somewhere2, 'Warning 2')
 
     bootstrap_form_for post do |form|
-      @output_buffer = form.error_and_warning_alert_boxes
+      @output_buffer = ActionView::OutputBuffer.new(form.error_and_warning_alert_boxes)
 
       assert_select 'div.alert', 1
       assert_select 'div.alert.alert-warning' do
