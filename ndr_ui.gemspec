@@ -24,10 +24,11 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 3.0.0'
 
   spec.add_dependency 'rails', '>= 6.1', '< 7.3'
-  spec.add_dependency 'bootstrap-sass', '~> 3.4.1'
+  spec.add_dependency 'bootstrap', '~> 5.3.3'
   spec.add_dependency 'jquery-rails', '~> 4.6'
   spec.add_dependency 'sprockets', '>= 4.0'
   spec.add_dependency 'sprockets-rails', '>= 3.0.0'
+  spec.add_dependency 'dartsass-sprockets'
 
   # Rails 6.1 and 7.0 do not support sqlite3 2.x; they specify gem "sqlite3", "~> 1.4"
   # in lib/active_record/connection_adapters/sqlite3_adapter.rb
