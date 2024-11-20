@@ -1,4 +1,7 @@
 ## [Unreleased]
+* no unreleased changes *
+
+## 4.1.1 / 2024-11-20
 ### Fixed
 * Support Ruby 3.2 and 3.3 and Rails 7.1 and 7.2
 
