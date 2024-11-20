@@ -1,6 +1,6 @@
 module NdrUi
   # Provides helper methods for the Twitter Bootstrap framework
-  module BootstrapHelper
+  module BootstrapHelper # rubocop:disable Metrics/ModuleLength
     include ::NdrUi::Bootstrap::BreadcrumbsHelper
     include ::NdrUi::Bootstrap::DropdownHelper
     include ::NdrUi::Bootstrap::ModalHelper
@@ -594,7 +594,12 @@ module NdrUi
       return true unless respond_to?(:can?)
 
       unless subject.is_a?(ActiveRecord::Base)
-        ActiveSupport::Deprecation.warn(<<~MSG)
+        deprecator = if Rails.application.respond_to?(:deprecators)
+                       Rails.application.deprecators[:active_support]
+                     else
+                       ActiveSupport::Deprecation # Rails <= 7.0
+                     end
+        deprecator.warn(<<~MSG)
           Attempting to authorise a non-resource object causes authorisation to be skipped.
           In future, this behaviour may change; please use a resource where possible.
         MSG
