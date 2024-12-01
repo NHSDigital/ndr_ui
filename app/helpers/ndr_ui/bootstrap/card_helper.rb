@@ -1,0 +1,75 @@
+module NdrUi
+  module Bootstrap
+    # This provides accordion
+    module CardHelper
+      CARD_TYPES = %w[primary secondary success danger warning info light dark].freeze
+
+      # Creates a bootstrap card wrapper. the heading is wrapped in a card-header.
+      # The content is not wrapped in a card-body to enable seamless tables and lists.
+      #
+      # ==== Signatures
+      #
+      #   bootstrap_card_tag(heading, options = {}) do
+      #     #content for card
+      #   end
+      #
+      # ==== Examples
+      #
+      #   <%= bootstrap_card_tag 'Apples', type: :warning, id: 'fruit' do %>
+      #     Check it out!!
+      #   <% end %>
+      #   # => <div id="fruit" class="card mb-3 text-bg-warning">
+      #          <div class="card-header d-flex">
+      #            <h4 class="card-title">Apples</h4>
+      #            <div class="ms-auto"></div>
+      #          </div>
+      #          Check it out!!
+      #        </div>
+      def bootstrap_card_tag(heading, controls = nil, options = {}, &block)
+        return unless block_given?
+
+        options.stringify_keys!
+        classes = %w[card mb-3]
+        classes << "text-bg-#{options.delete('type')}" if CARD_TYPES.include?(options['type'].to_s)
+        classes += options['class'].to_s.split(' ')
+        options['class'] = classes.uniq.join(' ')
+
+        header = content_tag(:div, class: 'card-header d-flex') do
+          concat content_tag(:h4, heading, class: 'card-title')
+          concat content_tag(:div, controls, class: 'ms-auto') unless controls.blank?
+        end
+
+        content_tag(:div, header + capture(&block), options)
+      end
+
+      # Creates a simple bootstrap card body.
+      #
+      # ==== Signatures
+      #
+      #   bootstrap_card_body_tag do
+      #     #content for card body
+      #   end
+      #
+      # ==== Examples
+      #
+      #   <%= bootstrap_card_body_tag do %>
+      #     Check it out!!
+      #   <% end %>
+      #   # => <div class="card-body">Check it out!!</div>
+      def bootstrap_card_body_tag(&block)
+        return unless block_given?
+        content_tag(:div, capture(&block), class: 'card-body')
+      end
+
+      # Creates a bootstrap card wrapper. the heading is wrapped in a card-header.
+      # The content is wrapped in a ul.list-group to enable seamless lists.
+      # It doesn't support controls (controls = nil).
+      def bootstrap_card_list(title, options = {}, &block)
+        bootstrap_card_tag(title, nil, options) do
+          content_tag(:div, capture(&block), class: 'list-group list-group-flush')
+        end
+      end
+
+    end
+  end
+end

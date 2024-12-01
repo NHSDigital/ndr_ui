@@ -1,10 +1,11 @@
 module NdrUi
   # Provides helper methods for the Twitter Bootstrap framework
   module BootstrapHelper # rubocop:disable Metrics/ModuleLength
+    include ::NdrUi::Bootstrap::AccordionHelper
     include ::NdrUi::Bootstrap::BreadcrumbsHelper
+    include ::NdrUi::Bootstrap::CardHelper
     include ::NdrUi::Bootstrap::DropdownHelper
     include ::NdrUi::Bootstrap::ModalHelper
-    include ::NdrUi::Bootstrap::PanelHelper
 
     # Creates an alert box of the given +type+. It supports the following alert box types
     # <tt>:alert</tt>, <tt>:danger</tt>, <tt>:info</tt> and <tt>:success</tt>.
@@ -65,10 +66,10 @@ module NdrUi
         end
         options['class'] = classes.join(' ')
 
-        message = button_tag('&times;'.html_safe,
+        message = button_tag('',
                              type: 'button',
-                             class: 'close',
-                             "data-dismiss": 'alert') + message if options.delete('dismissible')
+                             class: 'btn-close',
+                             "data-bs-dismiss": 'alert') + message if options.delete('dismissible')
         content_tag(:div, message, options)
       end
     end
@@ -100,13 +101,15 @@ module NdrUi
     # ==== Examples
     #
     #   <%= bootstrap_badge_tag(:success, 'Check it out!!') %>
-    #   # => <span class="badge">Check it out!!</span> <%# Bootstrap 3 %>
+    #   # => <span class="badge rounded-pill text-bg-success">Check it out!!</span> <%# Bootstrap 3 %>
     #
-    # TODO: In bootstrap 4, these will likely need to be implemented using "pill labels",
-    #       which will once again allow the `type` argument to colour them.
-    #
-    def bootstrap_badge_tag(_type, count)
-      content_tag(:span, count, class: 'badge')
+    def bootstrap_badge_tag(type, count)
+      type_map = {
+        important: :danger,
+        default: :secondary
+      }
+      style = type_map[type] || type
+      content_tag(:span, count, class: "badge rounded-pill text-bg-#{style}")
     end
 
     # Creates a simple bootstrap navigation caret.
@@ -132,13 +135,15 @@ module NdrUi
     # ==== Examples
     #
     #   <%= bootstrap_dropdown_toggle_tag('Check it out!!') %>
-    #   # => <a href="#" class="dropdown-toggle" data-toggle="dropdown">Check it
-    #   out!! <b class="caret"></b></a>
+    #   # => <a href="#" role="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    #   Check it out!! <b class="caret"></b></a>
     def bootstrap_dropdown_toggle_tag(body)
       link_to(ERB::Util.html_escape(body) + ' '.html_safe + bootstrap_caret_tag,
               '#',
-              class: 'dropdown-toggle',
-              'data-toggle': 'dropdown')
+              role: 'button',
+              class: 'nav-link dropdown-toggle',
+              'data-bs-toggle': 'dropdown',
+              'aria-expanded': 'false')
     end
 
     # Creates a simple bootstrap icon.
@@ -193,7 +198,7 @@ module NdrUi
 
     # Convenience wrapper for a bootstrap_list_link_to with badge
     def bootstrap_list_badge_and_link_to(type, count, name, path)
-      html = content_tag(:div, bootstrap_badge_tag(type, count), class: 'pull-right') + name
+      html = content_tag(:div, bootstrap_badge_tag(type, count), class: 'float-end') + name
       bootstrap_list_link_to(html, path)
     end
 
