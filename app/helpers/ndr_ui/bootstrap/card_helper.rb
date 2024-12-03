@@ -30,11 +30,11 @@ module NdrUi
 
         options.stringify_keys!
         classes = %w[card mb-3]
-        classes << "text-bg-#{options.delete('type')}" if CARD_TYPES.include?(options['type'].to_s)
+        classes << "bg-#{options.delete('type')}-subtle" if CARD_TYPES.include?(options['type'].to_s)
         classes += options['class'].to_s.split(' ')
         options['class'] = classes.uniq.join(' ')
 
-        header = content_tag(:div, class: 'card-header d-flex') do
+        header = content_tag(:div, class: "card-header#{' d-flex' if controls.present?}") do
           concat content_tag(:h4, heading, class: 'card-title')
           concat content_tag(:div, controls, class: 'ms-auto') unless controls.blank?
         end
