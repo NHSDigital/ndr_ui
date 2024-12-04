@@ -58,6 +58,7 @@ module NdrUi
       #   # => <div class="card-body">Check it out!!</div>
       def bootstrap_card_body_tag(&block)
         return unless block_given?
+
         content_tag(:div, capture(&block), class: 'card-body')
       end
 
@@ -67,6 +68,28 @@ module NdrUi
       def bootstrap_card_list(title, options = {}, &block)
         bootstrap_card_tag(title, nil, options) do
           content_tag(:div, capture(&block), class: 'list-group list-group-flush')
+        end
+      end
+
+      # Bootstrap v4 dropped Wells for Card component
+      # create a wrapper for Wells - a Card without heading
+      def bootstrap_well_tag(options = {}, &block)
+        return unless block_given?
+
+        options.stringify_keys!
+        classes = %w[card mb-3]
+        if CARD_TYPES.include?(options['type'].to_s)
+          classes << "bg-#{options.delete('type')}-subtle"
+        else
+          classes << 'text-bg-light'
+        end
+        classes += options['class'].to_s.split(' ')
+        options['class'] = classes.uniq.join(' ')
+
+        content_tag(:div, options) do
+          bootstrap_card_body_tag do
+            capture(&block)
+          end
         end
       end
 

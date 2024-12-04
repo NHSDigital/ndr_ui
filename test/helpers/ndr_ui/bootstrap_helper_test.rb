@@ -194,7 +194,7 @@ module NdrUi
       ) do |form|
         assert_kind_of BootstrapBuilder, form
       end
-      assert_select 'form#preserve_me.form-horizontal[autocomplete=off][action="/posts"]'
+      assert_select 'form#preserve_me[autocomplete=off][action="/posts"]'
     end
 
     test 'bootstrap_form_for invalid autocomplete option' do
@@ -248,7 +248,7 @@ module NdrUi
       ) do |form|
         assert_kind_of BootstrapBuilder, form
       end
-      assert_select 'form#preserve_me.form-horizontal[autocomplete=off][action="/posts"]'
+      assert_select 'form#preserve_me[autocomplete=off][action="/posts"]'
 
       reset_output_buffer!
       @output_buffer = bootstrap_form_with(
@@ -275,7 +275,7 @@ module NdrUi
       ) do |form|
         assert_kind_of BootstrapBuilder, form
       end
-      assert_select 'form#preserve_me.form-horizontal[autocomplete=off][action="/posts"]'
+      assert_select 'form#preserve_me[autocomplete=off][action="/posts"]'
     end
 
     test 'bootstrap_form_with invalid autocomplete option' do

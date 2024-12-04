@@ -10,7 +10,7 @@
 
 // for input fields with input-addons, remove background and border when the form is readonly. 
 .input-group {
-  .form-control-static + .input-group-addon {
+  .form-control-plaintext + .input-group-addon {
     background: none;
     border:0;
   }

@@ -229,12 +229,7 @@ module NdrUi
       options[:html] ||= {}
 
       # :horizontal
-      if horizontal = options.delete(:horizontal)
-        # set the form html class for horizontal bootstrap forms
-        options[:html][:class] ||= ''
-        classes = (options[:html][:class].split(' ') << 'form-horizontal').uniq.join(' ')
-        options[:html][:class] = classes
-      end
+      horizontal = options.delete(:horizontal)
 
       # stimuls controller, default `form_controller`
       options[:html][:'data-controller'] ||= ''
@@ -260,14 +255,6 @@ module NdrUi
       options[:html] ||= {}
       options[:builder] = NdrUi::BootstrapBuilder
       horizontal = options.delete(:horizontal)
-
-      # :horizontal
-      if horizontal
-        # set the form html class for horizontal bootstrap forms
-        options[:html][:class] ||= ''
-        classes = (options[:html][:class].split(' ') << 'form-horizontal').uniq.join(' ')
-        options[:html][:class] = classes
-      end
 
       # stimuls controller, default `form_controller`
       options[:html][:'data-controller'] ||= ''
