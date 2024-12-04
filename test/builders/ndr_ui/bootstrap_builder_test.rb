@@ -95,7 +95,7 @@ module NdrUi
         html = form.control_group(:created_at, 'Created at') do
           'Pears'
         end
-        assert_dom_equal '<div class="form-group has-error">' \
+        assert_dom_equal '<div class="form-group row has-error">' \
           '<label for="post_created_at" class="control-label col-md-3">Created at</label>' \
           '<div class="col-md-9">Pears</div></div>', html
       end
@@ -121,7 +121,7 @@ module NdrUi
         html = form.control_group(:created_at, 'Created at') do
           'Pears'
         end
-        assert_dom_equal '<div class="form-group has-error">' \
+        assert_dom_equal '<div class="form-group row has-error">' \
           '<label for="post_created_at" class="control-label col-md-3">Created at</label>' \
           '<div class="col-md-9">Pears</div></div>', html
       end
@@ -147,7 +147,7 @@ module NdrUi
         html = form.control_group(:created_at, 'Created at') do
           'Pears'
         end
-        assert_dom_equal '<div class="form-group has-warning">' \
+        assert_dom_equal '<div class="form-group row has-warning">' \
           '<label for="post_created_at" class="control-label col-md-3">Created at</label>' \
           '<div class="col-md-9">Pears</div></div>', html
       end

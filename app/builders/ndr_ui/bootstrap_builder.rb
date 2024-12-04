@@ -93,7 +93,9 @@ module NdrUi
     end
 
     def control_group_options(methods, options)
-      css_class_options_merge(options, %w(form-group)) do |group_classes|
+      default_classes = %w[form-group]
+      default_classes << 'row' if horizontal_mode
+      css_class_options_merge(options, default_classes) do |group_classes|
         if object && methods.present?
           if methods.any? { |method| object.errors[method].present? }
             group_classes << 'has-error'
