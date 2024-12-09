@@ -9,34 +9,34 @@ module NdrUi
   class BootstrapHelperTest < ActionView::TestCase
     test 'bootstrap_alert_tag with message parameter' do
       assert_dom_equal '<div class="alert alert-danger alert-dismissible">' \
-                       '<button class="close" data-dismiss="alert" name="button" type="button">' \
-                       '&times;</button>Apples</div>',
+                       '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
+                       'Apples</div>',
                        bootstrap_alert_tag(:danger, 'Apples')
       assert_dom_equal '<div class="alert alert-warning alert-dismissible">' \
-                       '<button class="close" data-dismiss="alert" name="button" type="button">' \
-                       '&times;</button>Apples</div>',
+                       '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
+                       'Apples</div>',
                        bootstrap_alert_tag(:warning, 'Apples')
       assert_dom_equal '<div class="alert alert-info alert-dismissible">' \
-                       '<button class="close" data-dismiss="alert" name="button" type="button">' \
-                       '&times;</button>Apples</div>',
+                       '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
+                       'Apples</div>',
                        bootstrap_alert_tag(:info, 'Apples')
       assert_dom_equal '<div class="alert alert-success alert-dismissible">' \
-                       '<button class="close" data-dismiss="alert" name="button" type="button">' \
-                       '&times;</button></div>',
+                       '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
+                       '</div>',
                        bootstrap_alert_tag(:success, nil)
       assert_dom_equal '<div class="alert alert-success alert-dismissible">' \
-                       '<button class="close" data-dismiss="alert" name="button" type="button">' \
-                       '&times;</button></div>',
+                       '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
+                       '</div>',
                        bootstrap_alert_tag(:success, '')
       assert_dom_equal '<div class="alert alert-warning alert-dismissible">' \
-                       '<button class="close" data-dismiss="alert" name="button" type="button">' \
-                       '&times;</button>Apples</div>',
+                       '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
+                       'Apples</div>',
                        bootstrap_alert_tag(:warning, 'Apples', dismissible: true)
       assert_dom_equal '<div class="alert alert-warning">Apples</div>',
                        bootstrap_alert_tag(:warning, 'Apples', dismissible: false)
       assert_dom_equal '<div id="apple_123" class="alert alert-warning alert-dismissible">' \
-                       '<button class="close" data-dismiss="alert" name="button" type="button">' \
-                       '&times;</button>Apples</div>',
+                       '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
+                       'Apples</div>',
                        bootstrap_alert_tag(:warning, 'Apples', dismissible: true, id: 'apple_123')
       assert_dom_equal '<div id="apple_123" class="alert alert-warning">Apples</div>',
                        bootstrap_alert_tag(:warning, 'Apples', dismissible: false, id: 'apple_123')
@@ -46,13 +46,13 @@ module NdrUi
 
     test 'bootstrap_alert_tag with message block' do
       assert_dom_equal '<div class="alert alert-info alert-dismissible">' \
-                       '<button class="close" data-dismiss="alert" name="button" type="button">' \
-                       '&times;</button>Pears</div>',
+                       '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
+                       'Pears</div>',
                        bootstrap_alert_tag(:info) { 'Pears' }
 
       assert_dom_equal '<div class="alert alert-danger alert-dismissible">' \
-                       '<button class="close" data-dismiss="alert" name="button" type="button">' \
-                       '&times;</button></div>',
+                       '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
+                       '</div>',
                        bootstrap_alert_tag(:danger) {}
 
       assert_dom_equal '<div id="pear_123" class="alert alert-warning">Pears</div>',
@@ -65,29 +65,28 @@ module NdrUi
     end
 
     test 'bootstrap_label_tag with message parameter' do
-      assert_dom_equal '<span class="label label-default">Pears</span>',
+      assert_dom_equal '<span class="badge text-bg-secondary">Pears</span>',
                        bootstrap_label_tag(:default, 'Pears')
-      assert_dom_equal '<span class="label label-success">Pears</span>',
+      assert_dom_equal '<span class="badge text-bg-success">Pears</span>',
                        bootstrap_label_tag(:success, 'Pears')
-      assert_dom_equal '<span class="label label-warning">Pears</span>',
+      assert_dom_equal '<span class="badge text-bg-warning">Pears</span>',
                        bootstrap_label_tag(:warning, 'Pears')
-      assert_dom_equal '<span class="label label-danger">Pears</span>',
+      assert_dom_equal '<span class="badge text-bg-danger">Pears</span>',
                        bootstrap_label_tag(:danger, 'Pears')
-      assert_dom_equal '<span class="label label-info">Pears</span>',
+      assert_dom_equal '<span class="badge text-bg-info">Pears</span>',
                        bootstrap_label_tag(:info, 'Pears')
-      assert_dom_equal '<span class="label label-primary">Pears</span>',
+      assert_dom_equal '<span class="badge text-bg-primary">Pears</span>',
                        bootstrap_label_tag(:primary, 'Pears')
       assert bootstrap_label_tag(:warning, unsafe_string).html_safe?,
              'bootstrap_label_tag is not html_safe'
     end
 
     test 'bootstrap_badge_tag with message parameter' do
-      assert_dom_equal '<span class="badge">Pears</span>', bootstrap_badge_tag(:default, 'Pears')
-      assert_dom_equal '<span class="badge">Pears</span>', bootstrap_badge_tag(:success, 'Pears')
-      assert_dom_equal '<span class="badge">Pears</span>', bootstrap_badge_tag(:warning, 'Pears')
-      assert_dom_equal '<span class="badge">Pears</span>', bootstrap_badge_tag(:important, 'Pears')
-      assert_dom_equal '<span class="badge">Pears</span>', bootstrap_badge_tag(:info, 'Pears')
-      assert_dom_equal '<span class="badge">Pears</span>', bootstrap_badge_tag(:inverse, 'Pears')
+      assert_dom_equal '<span class="badge rounded-pill text-bg-secondary">Pears</span>', bootstrap_badge_tag(:default, 'Pears')
+      assert_dom_equal '<span class="badge rounded-pill text-bg-success">Pears</span>', bootstrap_badge_tag(:success, 'Pears')
+      assert_dom_equal '<span class="badge rounded-pill text-bg-warning">Pears</span>', bootstrap_badge_tag(:warning, 'Pears')
+      assert_dom_equal '<span class="badge rounded-pill text-bg-danger">Pears</span>', bootstrap_badge_tag(:important, 'Pears')
+      assert_dom_equal '<span class="badge rounded-pill text-bg-info">Pears</span>', bootstrap_badge_tag(:info, 'Pears')
       assert bootstrap_badge_tag(:warning, unsafe_string).html_safe?,
              'bootstrap_badge_tag is not html_safe'
     end
@@ -98,7 +97,8 @@ module NdrUi
     end
 
     test 'bootstrap_dropdown_toggle_tag' do
-      assert_dom_equal '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Apples ' \
+      assert_dom_equal '<a role="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" ' \
+                       'aria-expanded="false" href="#">Apples ' \
                        "#{bootstrap_caret_tag}</a>",
                        bootstrap_dropdown_toggle_tag('Apples')
       assert bootstrap_dropdown_toggle_tag(unsafe_string).html_safe?,
@@ -132,8 +132,9 @@ module NdrUi
       stubs(:current_page?).returns(false)
       refute current_page?(inbox_path)
 
-      html = content_tag(:div, bootstrap_badge_tag(:important, 99), class: 'pull-right') + 'Inbox'
-      assert_dom_equal "<li>#{link_to(html, inbox_path)}</li>",
+      html = content_tag(:div, bootstrap_badge_tag(:important, 99), class: 'float-end')
+      html += 'Inbox'
+      assert_dom_equal content_tag(:li, link_to(html, inbox_path, class: 'dropdown-item')),
                        bootstrap_list_badge_and_link_to(:important, 99, 'Inbox', inbox_path)
     end
 
@@ -194,7 +195,7 @@ module NdrUi
       ) do |form|
         assert_kind_of BootstrapBuilder, form
       end
-      assert_select 'form#preserve_me.form-horizontal[autocomplete=off][action="/posts"]'
+      assert_select 'form#preserve_me[autocomplete=off][action="/posts"]'
     end
 
     test 'bootstrap_form_for invalid autocomplete option' do
@@ -248,7 +249,7 @@ module NdrUi
       ) do |form|
         assert_kind_of BootstrapBuilder, form
       end
-      assert_select 'form#preserve_me.form-horizontal[autocomplete=off][action="/posts"]'
+      assert_select 'form#preserve_me[autocomplete=off][action="/posts"]'
 
       reset_output_buffer!
       @output_buffer = bootstrap_form_with(
@@ -275,7 +276,7 @@ module NdrUi
       ) do |form|
         assert_kind_of BootstrapBuilder, form
       end
-      assert_select 'form#preserve_me.form-horizontal[autocomplete=off][action="/posts"]'
+      assert_select 'form#preserve_me[autocomplete=off][action="/posts"]'
     end
 
     test 'bootstrap_form_with invalid autocomplete option' do
@@ -331,25 +332,19 @@ module NdrUi
     test 'bootstrap_horizontal_form_group' do
       # Test with standard columns:
       actual   = bootstrap_horizontal_form_group('The Label') { 'This is the content' }
-      expected = '<div class="form-group"><label class="col-sm-2 control-label">' \
+      expected = '<div class="form-group"><label class="col-sm-2 col-form-label">' \
                  'The Label</label><div class="col-sm-10">This is the content</div></div>'
       assert_dom_equal expected, actual
 
       # Test with different columns:
       actual   = bootstrap_horizontal_form_group('The Label', [3, 9]) { 'This is the content' }
-      expected = '<div class="form-group"><label class="col-sm-3 control-label">' \
+      expected = '<div class="form-group"><label class="col-sm-3 col-form-label">' \
                  'The Label</label><div class="col-sm-9">This is the content</div></div>'
       assert_dom_equal expected, actual
 
       # Test with no label:
       actual   = bootstrap_horizontal_form_group { 'This is the content' }
       expected = '<div class="form-group"><div class="col-sm-10 col-sm-offset-2">' \
-                 'This is the content</div></div>'
-      assert_dom_equal expected, actual
-
-      # Test with no label and different columns:
-      actual   = bootstrap_horizontal_form_group([1, 11]) { 'This is the content' }
-      expected = '<div class="form-group"><div class="col-sm-11 col-sm-offset-1">' \
                  'This is the content</div></div>'
       assert_dom_equal expected, actual
     end
