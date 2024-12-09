@@ -69,7 +69,7 @@ module NdrUi
         methods = [methods].compact unless methods.is_a?(Array)
 
         label_classes = if horizontal_mode
-                          "col-form-label col-#{label_columns} text-right"
+                          "col-form-label col-#{label_columns} text-end"
                         else
                           'form-label'
                         end

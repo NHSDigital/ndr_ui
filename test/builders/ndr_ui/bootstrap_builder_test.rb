@@ -96,7 +96,7 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group row has-error">' \
-          '<label class="col-form-label col-3 text-right" for="post_created_at">Created at</label>' \
+          '<label class="col-form-label col-3 text-end" for="post_created_at">Created at</label>' \
           '<div class="col-9">Pears</div></div>', html
       end
     end
@@ -122,7 +122,7 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group row has-error">' \
-          '<label class="col-form-label col-3 text-right" for="post_created_at">Created at</label>' \
+          '<label class="col-form-label col-3 text-end" for="post_created_at">Created at</label>' \
           '<div class="col-9">Pears</div></div>', html
       end
     end
@@ -148,7 +148,7 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group row has-warning">' \
-          '<label class="col-form-label col-3 text-right" for="post_created_at" class="col-form-label col-md-3">Created at</label>' \
+          '<label class="col-form-label col-3 text-end" for="post_created_at" class="col-form-label col-md-3">Created at</label>' \
           '<div class="col-9">Pears</div></div>', html
       end
     end
