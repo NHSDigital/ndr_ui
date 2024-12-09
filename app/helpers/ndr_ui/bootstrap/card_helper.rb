@@ -2,6 +2,8 @@ module NdrUi
   module Bootstrap
     # This provides accordion
     module CardHelper
+      include CssHelper
+
       CARD_TYPES = %w[primary secondary success danger warning info light dark].freeze
 
       # Creates a bootstrap card wrapper. the heading is wrapped in a card-header.
@@ -31,12 +33,11 @@ module NdrUi
         options.stringify_keys!
         classes = %w[card mb-3]
         classes << "bg-#{options.delete('type')}-subtle" if CARD_TYPES.include?(options['type'].to_s)
-        classes += options['class'].to_s.split(' ')
-        options['class'] = classes.uniq.join(' ')
+        options = css_class_options_merge(options, classes)
 
         header = content_tag(:div, class: "card-header#{' d-flex' if controls.present?}") do
           concat content_tag(:h4, heading, class: 'card-title')
-          concat content_tag(:div, controls, class: 'ms-auto') unless controls.blank?
+          concat content_tag(:div, controls, class: 'ms-auto') if controls.present?
         end
 
         content_tag(:div, header + capture(&block), options)
@@ -78,12 +79,8 @@ module NdrUi
 
         options.stringify_keys!
         classes = %w[card mb-3]
-        if CARD_TYPES.include?(options['type'].to_s)
-          classes << "bg-#{options.delete('type')}-subtle"
-        else
-          classes << 'text-bg-light'
-        end
-        classes += options['class'].to_s.split(' ')
+        classes << (CARD_TYPES.include?(options['type'].to_s)) ? "bg-#{options.delete('type')}-subtle" : 'text-bg-light'
+        classes += options['class'].to_s.split
         options['class'] = classes.uniq.join(' ')
 
         content_tag(:div, options) do
@@ -92,7 +89,6 @@ module NdrUi
           end
         end
       end
-
     end
   end
 end

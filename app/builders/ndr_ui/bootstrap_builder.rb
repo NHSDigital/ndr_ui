@@ -63,38 +63,36 @@ module NdrUi
     #   <% end %>
     #
     def control_group(methods, text = nil, options = {}, control_options = {}, controls = '', &block)
-      if block_given?
-        return control_group(methods, text, options, control_options, @template.capture(&block))
-      else
-        methods = [methods].compact unless methods.is_a?(Array)
+      return control_group(methods, text, options, control_options, @template.capture(&block)) if block_given?
 
-        label_classes = if horizontal_mode
-                          "col-form-label col-#{label_columns} text-end"
-                        else
-                          'form-label'
-                        end
-        label_options = {
-          class: label_classes,
-          tooltip: options.delete(:tooltip)
-        }
-        label_html = if methods.present?
-                       label(methods.first, text, label_options)
-                     else
-                       @template.content_tag(:span, text, class: label_classes)
-                     end
+      methods = [methods].compact unless methods.is_a?(Array)
 
-        control_options = css_class_options_merge(control_options) do |control_classes|
-          # Only add a col-md-N class if none already specified
-          if horizontal_mode && control_classes.none? { |css_class| css_class.start_with?('col-') }
-            control_classes << "col-#{12 - label_columns}"
-          end
+      label_classes = if horizontal_mode
+                        "col-form-label col-#{label_columns} text-end"
+                      else
+                        'form-label'
+                      end
+      label_options = {
+        class: label_classes,
+        tooltip: options.delete(:tooltip)
+      }
+      label_html = if methods.present?
+                     label(methods.first, text, label_options)
+                   else
+                     @template.content_tag(:span, text, class: label_classes)
+                   end
+
+      control_options = css_class_options_merge(control_options) do |control_classes|
+        # Only add a col-md-N class if none already specified
+        if horizontal_mode && control_classes.none? { |css_class| css_class.start_with?('col-') }
+          control_classes << "col-#{12 - label_columns}"
         end
-
-        @template.content_tag(:div,
-                              label_html +
-                                @template.content_tag(:div, controls, control_options),
-                              control_group_options(methods, options))
       end
+
+      @template.content_tag(:div,
+                            label_html +
+                              @template.content_tag(:div, controls, control_options),
+                            control_group_options(methods, options))
     end
 
     def control_group_options(methods, options)

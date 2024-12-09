@@ -45,22 +45,22 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group">' \
-          '<label class="form-label" for="post_created_at">Created at</label>' \
-          '<div>Pears</div></div>', html
+                         '<label class="form-label" for="post_created_at">Created at</label>' \
+                         '<div>Pears</div></div>', html
 
         html = form.control_group(:created_at, 'Created at', class: 'col-md-2') do
           'Pears'
         end
         assert_dom_equal '<div class="form-group col-md-2">' \
-          '<label class="form-label" for="post_created_at">Created at</label>' \
-          '<div>Pears</div></div>', html
+                         '<label class="form-label" for="post_created_at">Created at</label>' \
+                         '<div>Pears</div></div>', html
 
         html = form.control_group(:created_at, 'Created at', {}, id: 'dom_id') do
           'Pears'
         end
         assert_dom_equal '<div class="form-group">' \
-          '<label class="form-label" for="post_created_at">Created at</label>' \
-          '<div id="dom_id">Pears</div></div>', html
+                         '<label class="form-label" for="post_created_at">Created at</label>' \
+                         '<div id="dom_id">Pears</div></div>', html
 
         assert_dom_equal(
           '<div class="form-group">' \
@@ -82,8 +82,8 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group has-error">' \
-          '<label class="form-label" for="post_created_at" class="col-form-label">Created at</label>' \
-          '<div>Pears</div></div>', html
+                         '<label class="form-label" for="post_created_at" class="col-form-label">Created at</label>' \
+                         '<div>Pears</div></div>', html
       end
     end
 
@@ -96,8 +96,8 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group row has-error">' \
-          '<label class="col-form-label col-3 text-end" for="post_created_at">Created at</label>' \
-          '<div class="col-9">Pears</div></div>', html
+                         '<label class="col-form-label col-3 text-end" for="post_created_at">Created at</label>' \
+                         '<div class="col-9">Pears</div></div>', html
       end
     end
 
@@ -109,8 +109,8 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group has-error">' \
-          '<label class="form-label" for="post_created_at">Created at</label>' \
-          '<div>Pears</div></div>', html
+                         '<label class="form-label" for="post_created_at">Created at</label>' \
+                         '<div>Pears</div></div>', html
       end
     end
 
@@ -122,8 +122,8 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group row has-error">' \
-          '<label class="col-form-label col-3 text-end" for="post_created_at">Created at</label>' \
-          '<div class="col-9">Pears</div></div>', html
+                         '<label class="col-form-label col-3 text-end" for="post_created_at">Created at</label>' \
+                         '<div class="col-9">Pears</div></div>', html
       end
     end
 
@@ -135,8 +135,8 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group has-warning">' \
-         '<label class="form-label" for="post_created_at" class="col-form-label">Created at</label>' \
-         '<div>Pears</div></div>', html
+                         '<label class="form-label" for="post_created_at" class="col-form-label">Created at</label>' \
+                         '<div>Pears</div></div>', html
       end
     end
 
@@ -148,8 +148,8 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group row has-warning">' \
-          '<label class="col-form-label col-3 text-end" for="post_created_at" class="col-form-label col-md-3">Created at</label>' \
-          '<div class="col-9">Pears</div></div>', html
+                         '<label class="col-form-label col-3 text-end" for="post_created_at">Created at</label>' \
+                         '<div class="col-9">Pears</div></div>', html
       end
     end
 

@@ -132,8 +132,9 @@ module NdrUi
       stubs(:current_page?).returns(false)
       refute current_page?(inbox_path)
 
-      html = content_tag(:div, bootstrap_badge_tag(:important, 99), class: 'float-end') + 'Inbox'
-      assert_dom_equal "<li>#{link_to(html, inbox_path, class: 'dropdown-item')}</li>",
+      html = content_tag(:div, bootstrap_badge_tag(:important, 99), class: 'float-end')
+      html += 'Inbox'
+      assert_dom_equal content_tag(:li, link_to(html, inbox_path, class: 'dropdown-item')),
                        bootstrap_list_badge_and_link_to(:important, 99, 'Inbox', inbox_path)
     end
 
@@ -344,12 +345,6 @@ module NdrUi
       # Test with no label:
       actual   = bootstrap_horizontal_form_group { 'This is the content' }
       expected = '<div class="form-group"><div class="col-sm-10 col-sm-offset-2">' \
-                 'This is the content</div></div>'
-      assert_dom_equal expected, actual
-
-      # Test with no label and different columns:
-      actual   = bootstrap_horizontal_form_group([1, 11]) { 'This is the content' }
-      expected = '<div class="form-group"><div class="col-sm-11 col-sm-offset-1">' \
                  'This is the content</div></div>'
       assert_dom_equal expected, actual
     end

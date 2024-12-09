@@ -10,7 +10,7 @@ module NdrUi
     TYPE_STYLE_MAP = {
       important: :danger,
       default: :secondary
-    }
+    }.freeze
 
     # Creates an alert box of the given +type+. It supports the following alert box types
     # <tt>:alert</tt>, <tt>:danger</tt>, <tt>:info</tt> and <tt>:success</tt>.
@@ -71,10 +71,9 @@ module NdrUi
         end
         options['class'] = classes.join(' ')
 
-        message = button_tag('',
-                             type: 'button',
-                             class: 'btn-close',
-                             "data-bs-dismiss": 'alert') + message if options.delete('dismissible')
+        if options.delete('dismissible')
+          message = button_tag('', type: 'button', class: 'btn-close', 'data-bs-dismiss': 'alert') + message
+        end
         content_tag(:div, message, options)
       end
     end
@@ -225,7 +224,7 @@ module NdrUi
 
     # Identical signature to form_for, but uses NdrUi::BootstrapBuilder.
     # See ActionView::Helpers::FormHelper for details
-    def bootstrap_form_for(record_or_name_or_array, *args, &proc)
+    def bootstrap_form_for(record_or_name_or_array, *args, &_proc)
       options = args.extract_options!
       options[:html] ||= {}
 
@@ -234,11 +233,12 @@ module NdrUi
 
       # stimuls controller, default `form_controller`
       options[:html][:'data-controller'] ||= ''
-      controllers = (options[:html][:'data-controller'].split(' ') << 'form').uniq.join(' ')
+      controllers = (options[:html][:'data-controller'].split << 'form').uniq.join(' ')
       options[:html][:'data-controller'] = controllers
 
       # We switch autocomplete off by default
       raise 'autocomplete should be defined an html option' if options[:autocomplete]
+
       options[:html][:autocomplete] ||= 'off'
 
       form_for(record_or_name_or_array, *(args << options.merge(builder: NdrUi::BootstrapBuilder))) do |form|
@@ -259,11 +259,12 @@ module NdrUi
 
       # stimuls controller, default `form_controller`
       options[:html][:'data-controller'] ||= ''
-      controllers = (options[:html][:'data-controller'].split(' ') << 'form').uniq.join(' ')
+      controllers = (options[:html][:'data-controller'].split << 'form').uniq.join(' ')
       options[:html][:'data-controller'] = controllers
 
       # We switch autocomplete off by default
       raise 'autocomplete should be defined an html option' if options[:autocomplete]
+
       options[:html][:autocomplete] ||= 'off'
 
       form_with(**options) do |form|
@@ -370,17 +371,13 @@ module NdrUi
     #     </div>
     #
     def bootstrap_horizontal_form_group(label = nil, ratio = [2, 10], &block)
-      label, ratio = nil, label if label.is_a?(Array)
-
       l, r   = ratio[0..1].map(&:to_i)
       offset = label.nil? ? " col-sm-offset-#{l}" : ''
 
       # Main content:
       content = content_tag(:div, class: "col-sm-#{r}" + offset, &block)
       # Prepend optional label:
-      unless label.nil?
-        content = content_tag(:label, label, class: "col-sm-#{l} col-form-label") + content
-      end
+      content = content_tag(:label, label, class: "col-sm-#{l} col-form-label") + content unless label.nil?
 
       content_tag(:div, content, class: 'form-group')
     end

@@ -17,20 +17,18 @@ module NdrUi
       # See the Rails documentation for details of the options and examples
       #
       def bootstrap_list_link_to(*args, &block)
-        if block_given?
-          return bootstrap_list_link_to(capture(&block), (args.first || {}), args.second)
-        end
+        return bootstrap_list_link_to(capture(&block), (args.first || {}), args.second) if block_given?
 
         name         = args.first
         options      = args.second || {}
         html_options = args.third || {}
 
-        klass = html_options[:class].to_s.split(' ')
-        if html_options.delete(:mode).to_s == 'nav'
-          klass << 'nav-link'
-        else
-          klass << 'dropdown-item'
-        end
+        klass = html_options[:class].to_s.split
+        klass << if html_options.delete(:mode).to_s == 'nav'
+                   'nav-link'
+                 else
+                   'dropdown-item'
+                 end
         klass << 'active' if current_page?(options)
         html_options[:class] = klass.join(' ')
 
@@ -48,7 +46,7 @@ module NdrUi
       #   <%= bootstrap_list_header_tag("Apples") %>
       #   # => <li class="dropdown-header">Apples</li>
       def bootstrap_list_header_tag(name, options = {})
-        options[:class] = (options[:class].to_s.split(' ') + ['dropdown-header']).join(' ')
+        options[:class] = (options[:class].to_s.split + ['dropdown-header']).join(' ')
         content_tag(:li, content_tag(:h6, name, options))
       end
 

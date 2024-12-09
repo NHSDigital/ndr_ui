@@ -7,7 +7,7 @@ module NdrUi
     # Most helpers have a similar signature, so can be iterated over and
     # enhanced. The reminaining minority have to be manually re-defined.
     module Readonly
-      def self.included(base)
+      def self.included(base) # rubocop:disable Metrics/MethodLength
         # These have different signatures, or aren't affected by `readonly`:
         not_affected = %i[label fields_for]
         needs_custom = %i[radio_button file_field hidden_field textarea] +

@@ -1,5 +1,6 @@
 module NdrUi
   module Bootstrap
+    # This provides bootstrap accordion helper methods
     module AccordionHelper
       # Creates an accordion wrapper and creates a new NdrUi::Bootstrap::Accordion instance
       # Creates an plain or nested bootstrap accordion along with bootstrap_accordion_group
@@ -16,7 +17,7 @@ module NdrUi
       #   <%= bootstrap_accordion_group :fruit do |fruit_accordion| %>
       #   <% end %>
       #   # => <div id="fruit" class="accordion"></div>
-      def bootstrap_accordion_tag(dom_id, options = {}, &block)
+      def bootstrap_accordion_tag(dom_id, options = {}, &_block)
         return unless block_given?
 
         options.stringify_keys!
@@ -86,6 +87,7 @@ module NdrUi
     class Accordion
       attr_accessor :dom_id, :index
 
+      # rubocop:disable Rails/HelperInstanceVariable
       def initialize(accordion_id, template)
         @dom_id = accordion_id
         @template = template
@@ -97,7 +99,7 @@ module NdrUi
 
         options.stringify_keys!
         @index += 1
-        content = @template.content_tag('div',class: 'accordion-body') do
+        content = @template.content_tag('div', class: 'accordion-body') do
           @template.capture(&block)
         end
         @template.content_tag('div', class: 'accordion-item') do
@@ -113,11 +115,11 @@ module NdrUi
 
       def accordion_header_tag(heading, open_by_default)
         @template.content_tag('h2', class: 'accordion-header') do
-          @template.button_tag(heading, class: "accordion-button#{' collapsed' unless open_by_default}",
+          @template.button_tag(heading,
+                               class: "accordion-button#{' collapsed' unless open_by_default}",
                                type: :button,
                                'data-bs-toggle': 'collapse',
                                'data-bs-target': "##{group_id}")
-
         end
       end
 
@@ -127,6 +129,7 @@ module NdrUi
                               class: "accordion-collapse collapse#{' show' if open_by_default}",
                               'data-bs-parent': "##{@dom_id}")
       end
+      # rubocop:enable Rails/HelperInstanceVariable
     end
   end
 end
