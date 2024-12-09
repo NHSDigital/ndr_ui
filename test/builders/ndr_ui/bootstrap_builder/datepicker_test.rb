@@ -12,7 +12,7 @@ class DatepickerTest < ActionView::TestCase
       assert_dom_equal(
         '<div class="input-group date" data-provide="datepicker">' \
         '<input class="form-control" type="text" name="post[created_at]" id="post_created_at" />' \
-        '<span aria-hidden="true" class="input-group-addon">' \
+        '<span aria-hidden="true" class="input-group-text">' \
         '<span class="glyphicon glyphicon-calendar"></span>' \
         '</span>' \
         '</div>' \
@@ -31,7 +31,7 @@ class DatepickerTest < ActionView::TestCase
       assert_dom_equal(
         '<div class="input-group date" data-provide="datepicker" data-date-end-date="0d">' \
         '<input class="form-control" type="text" name="post[created_at]" id="post_created_at"/>' \
-        '<span aria-hidden="true" class="input-group-addon">' \
+        '<span aria-hidden="true" class="input-group-text">' \
         '<span class="glyphicon glyphicon-calendar"></span>' \
         '</span>' \
         '</div>' \
@@ -52,7 +52,7 @@ class DatepickerTest < ActionView::TestCase
       assert_dom_equal(
         '<div class="input-group date" data-provide="datepicker">' \
         '<input class="form-control" type="text" name="post[created_at]" id="post_created_at" />' \
-        '<span aria-hidden="true" class="input-group-addon">' \
+        '<span aria-hidden="true" class="input-group-text">' \
         '<span class="glyphicon glyphicon-calendar"></span>' \
         '</span>' \
         '</div>' \

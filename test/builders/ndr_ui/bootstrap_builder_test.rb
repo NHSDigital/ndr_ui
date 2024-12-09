@@ -29,14 +29,14 @@ module NdrUi
       bootstrap_form_for post do |form|
         assert_dom_equal(
           '<div class="form-group">' \
-          '<label for="post_created_at" class="control-label">Created at</label>' \
+          '<label class="form-label" for="post_created_at">Created at</label>' \
           '<div>Apples</div></div>',
           form.control_group(:created_at, 'Created at', {}, {}, 'Apples')
         )
 
         assert_dom_equal(
           '<div class="form-group">' \
-          '<label for="post_created_at" class="control-label">Created at</label>' \
+          '<label class="form-label" for="post_created_at">Created at</label>' \
           '<div>Apples</div></div>',
           form.control_group(:created_at, nil, {}, {}, 'Apples')
         )
@@ -45,26 +45,26 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group">' \
-          '<label for="post_created_at" class="control-label">Created at</label>' \
+          '<label class="form-label" for="post_created_at">Created at</label>' \
           '<div>Pears</div></div>', html
 
         html = form.control_group(:created_at, 'Created at', class: 'col-md-2') do
           'Pears'
         end
         assert_dom_equal '<div class="form-group col-md-2">' \
-          '<label for="post_created_at" class="control-label">Created at</label>' \
+          '<label class="form-label" for="post_created_at">Created at</label>' \
           '<div>Pears</div></div>', html
 
         html = form.control_group(:created_at, 'Created at', {}, id: 'dom_id') do
           'Pears'
         end
         assert_dom_equal '<div class="form-group">' \
-          '<label for="post_created_at" class="control-label">Created at</label>' \
+          '<label class="form-label" for="post_created_at">Created at</label>' \
           '<div id="dom_id">Pears</div></div>', html
 
         assert_dom_equal(
           '<div class="form-group">' \
-          '<label for="post_created_at" class="control-label">Created at ' \
+          '<label class="form-label" for="post_created_at">Created at ' \
           '<span title="Carrot" class="question-tooltip">' \
           '<span class="glyphicon glyphicon-question-sign"></span></span></label>' \
           '<div>Apples</div></div>',
@@ -82,7 +82,7 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group has-error">' \
-          '<label for="post_created_at" class="control-label">Created at</label>' \
+          '<label class="form-label" for="post_created_at" class="col-form-label">Created at</label>' \
           '<div>Pears</div></div>', html
       end
     end
@@ -96,8 +96,8 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group row has-error">' \
-          '<label for="post_created_at" class="control-label col-md-3">Created at</label>' \
-          '<div class="col-md-9">Pears</div></div>', html
+          '<label class="col-form-label col-3 text-right" for="post_created_at">Created at</label>' \
+          '<div class="col-9">Pears</div></div>', html
       end
     end
 
@@ -109,7 +109,7 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group has-error">' \
-          '<label for="post_created_at" class="control-label">Created at</label>' \
+          '<label class="form-label" for="post_created_at">Created at</label>' \
           '<div>Pears</div></div>', html
       end
     end
@@ -122,8 +122,8 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group row has-error">' \
-          '<label for="post_created_at" class="control-label col-md-3">Created at</label>' \
-          '<div class="col-md-9">Pears</div></div>', html
+          '<label class="col-form-label col-3 text-right" for="post_created_at">Created at</label>' \
+          '<div class="col-9">Pears</div></div>', html
       end
     end
 
@@ -135,7 +135,7 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group has-warning">' \
-         '<label for="post_created_at" class="control-label">Created at</label>' \
+         '<label class="form-label" for="post_created_at" class="col-form-label">Created at</label>' \
          '<div>Pears</div></div>', html
       end
     end
@@ -148,8 +148,8 @@ module NdrUi
           'Pears'
         end
         assert_dom_equal '<div class="form-group row has-warning">' \
-          '<label for="post_created_at" class="control-label col-md-3">Created at</label>' \
-          '<div class="col-md-9">Pears</div></div>', html
+          '<label class="col-form-label col-3 text-right" for="post_created_at" class="col-form-label col-md-3">Created at</label>' \
+          '<div class="col-9">Pears</div></div>', html
       end
     end
 

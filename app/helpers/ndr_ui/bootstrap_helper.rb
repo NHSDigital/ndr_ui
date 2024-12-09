@@ -7,6 +7,11 @@ module NdrUi
     include ::NdrUi::Bootstrap::DropdownHelper
     include ::NdrUi::Bootstrap::ModalHelper
 
+    TYPE_STYLE_MAP = {
+      important: :danger,
+      default: :secondary
+    }
+
     # Creates an alert box of the given +type+. It supports the following alert box types
     # <tt>:alert</tt>, <tt>:danger</tt>, <tt>:info</tt> and <tt>:success</tt>.
     #
@@ -88,8 +93,8 @@ module NdrUi
     #   # => <span class="label label-info">Check it out!!</span>
     #
     def bootstrap_label_tag(type, message)
-      classes = ['label', "label-#{type}"]
-      content_tag(:span, message, class: classes.join(' '))
+      style = TYPE_STYLE_MAP[type] || type
+      content_tag(:span, message, class: "badge text-bg-#{style}")
     end
 
     # Creates an bootstrap badge of the given +type+. Bootstrap 3 does not support any types.
@@ -101,14 +106,10 @@ module NdrUi
     # ==== Examples
     #
     #   <%= bootstrap_badge_tag(:success, 'Check it out!!') %>
-    #   # => <span class="badge rounded-pill text-bg-success">Check it out!!</span> <%# Bootstrap 3 %>
+    #   # => <span class="badge rounded-pill text-bg-success">Check it out!!</span>
     #
     def bootstrap_badge_tag(type, count)
-      type_map = {
-        important: :danger,
-        default: :secondary
-      }
-      style = type_map[type] || type
+      style = TYPE_STYLE_MAP[type] || type
       content_tag(:span, count, class: "badge rounded-pill text-bg-#{style}")
     end
 
@@ -364,7 +365,7 @@ module NdrUi
     #   bootstrap_horizontal_form_group("The Label", [3, 9]) { 'This is the content' }
     #   # =>
     #     <div class="form-group">
-    #       <label class="col-sm-3 control-label">The Label</label>
+    #       <label class="col-sm-3 col-form-label">The Label</label>
     #       <div class="col-sm-9">This is the content</div>
     #     </div>
     #
@@ -378,7 +379,7 @@ module NdrUi
       content = content_tag(:div, class: "col-sm-#{r}" + offset, &block)
       # Prepend optional label:
       unless label.nil?
-        content = content_tag(:label, label, class: "col-sm-#{l} control-label") + content
+        content = content_tag(:label, label, class: "col-sm-#{l} col-form-label") + content
       end
 
       content_tag(:div, content, class: 'form-group')

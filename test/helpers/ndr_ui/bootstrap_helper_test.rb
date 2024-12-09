@@ -65,17 +65,17 @@ module NdrUi
     end
 
     test 'bootstrap_label_tag with message parameter' do
-      assert_dom_equal '<span class="label label-default">Pears</span>',
+      assert_dom_equal '<span class="badge text-bg-secondary">Pears</span>',
                        bootstrap_label_tag(:default, 'Pears')
-      assert_dom_equal '<span class="label label-success">Pears</span>',
+      assert_dom_equal '<span class="badge text-bg-success">Pears</span>',
                        bootstrap_label_tag(:success, 'Pears')
-      assert_dom_equal '<span class="label label-warning">Pears</span>',
+      assert_dom_equal '<span class="badge text-bg-warning">Pears</span>',
                        bootstrap_label_tag(:warning, 'Pears')
-      assert_dom_equal '<span class="label label-danger">Pears</span>',
+      assert_dom_equal '<span class="badge text-bg-danger">Pears</span>',
                        bootstrap_label_tag(:danger, 'Pears')
-      assert_dom_equal '<span class="label label-info">Pears</span>',
+      assert_dom_equal '<span class="badge text-bg-info">Pears</span>',
                        bootstrap_label_tag(:info, 'Pears')
-      assert_dom_equal '<span class="label label-primary">Pears</span>',
+      assert_dom_equal '<span class="badge text-bg-primary">Pears</span>',
                        bootstrap_label_tag(:primary, 'Pears')
       assert bootstrap_label_tag(:warning, unsafe_string).html_safe?,
              'bootstrap_label_tag is not html_safe'
@@ -331,13 +331,13 @@ module NdrUi
     test 'bootstrap_horizontal_form_group' do
       # Test with standard columns:
       actual   = bootstrap_horizontal_form_group('The Label') { 'This is the content' }
-      expected = '<div class="form-group"><label class="col-sm-2 control-label">' \
+      expected = '<div class="form-group"><label class="col-sm-2 col-form-label">' \
                  'The Label</label><div class="col-sm-10">This is the content</div></div>'
       assert_dom_equal expected, actual
 
       # Test with different columns:
       actual   = bootstrap_horizontal_form_group('The Label', [3, 9]) { 'This is the content' }
-      expected = '<div class="form-group"><label class="col-sm-3 control-label">' \
+      expected = '<div class="form-group"><label class="col-sm-3 col-form-label">' \
                  'The Label</label><div class="col-sm-9">This is the content</div></div>'
       assert_dom_equal expected, actual
 

@@ -10,7 +10,7 @@ class InputGroupAddonsTest < ActionView::TestCase
     bootstrap_form_for post do |form|
       assert_dom_equal(
         '<div class="input-group">' \
-        '<span class="input-group-addon">apples</span>' \
+        '<span class="input-group-text">apples</span>' \
         '<input id="post_id" name="post[id]" class="form-control" type="text" />' \
         '</div>' \
         '<span class="help-block" data-feedback-for="post_id">' \
@@ -28,7 +28,7 @@ class InputGroupAddonsTest < ActionView::TestCase
       assert_dom_equal(
         '<div class="input-group">' \
         '<input id="post_id" name="post[id]" class="form-control" type="text" />' \
-        '<span class="input-group-addon">pears</span>' \
+        '<span class="input-group-text">pears</span>' \
         '</div>' \
         '<span class="help-block" data-feedback-for="post_id">' \
         '<span class="text-danger"></span>' \
@@ -44,9 +44,9 @@ class InputGroupAddonsTest < ActionView::TestCase
     bootstrap_form_for post do |form|
       assert_dom_equal(
         '<div class="input-group">' \
-        '<span class="input-group-addon">apples</span>' \
+        '<span class="input-group-text">apples</span>' \
         '<input id="post_id" name="post[id]" class="form-control" type="text" />' \
-        '<span class="input-group-addon">pears</span>' \
+        '<span class="input-group-text">pears</span>' \
         '</div>' \
         '<span class="help-block" data-feedback-for="post_id">' \
         '<span class="text-danger"></span>' \

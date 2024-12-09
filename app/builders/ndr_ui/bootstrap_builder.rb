@@ -50,7 +50,7 @@ module NdrUi
 
     #   <%= form.control_group(:title, 'Demo', {:class => "col-md-6"}, {:id => 'some_id'}, "# Controls go here") %>
     #   # => <div class="form-group col-md-6">
-    #           <label for="post_title" class="control-label">Demo</label>
+    #           <label class="form-label" for="post_title">Demo</label>
     #           <div id="some_id">
     #             # Controls go here
     #           </div>
@@ -68,20 +68,25 @@ module NdrUi
       else
         methods = [methods].compact unless methods.is_a?(Array)
 
-        label_classes = ['control-label']
-        label_classes << "col-md-#{label_columns}" if horizontal_mode
-        label_options = {class: label_classes.join(' ')}
-        label_options[:tooltip] = options.delete(:tooltip)
+        label_classes = if horizontal_mode
+                          "col-form-label col-#{label_columns} text-right"
+                        else
+                          'form-label'
+                        end
+        label_options = {
+          class: label_classes,
+          tooltip: options.delete(:tooltip)
+        }
         label_html = if methods.present?
                        label(methods.first, text, label_options)
                      else
-                       @template.content_tag(:span, text, class: label_classes.join(' '))
+                       @template.content_tag(:span, text, class: label_classes)
                      end
 
         control_options = css_class_options_merge(control_options) do |control_classes|
           # Only add a col-md-N class if none already specified
           if horizontal_mode && control_classes.none? { |css_class| css_class.start_with?('col-') }
-            control_classes << "col-md-#{12 - label_columns}"
+            control_classes << "col-#{12 - label_columns}"
           end
         end
 
@@ -93,6 +98,8 @@ module NdrUi
     end
 
     def control_group_options(methods, options)
+      # .form-group has been deprecated in Bootstrap
+      # however, we keep this class to do the global margin setting
       default_classes = %w[form-group]
       default_classes << 'row' if horizontal_mode
       css_class_options_merge(options, default_classes) do |group_classes|
