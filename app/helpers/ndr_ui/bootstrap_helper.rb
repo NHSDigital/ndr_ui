@@ -1,10 +1,16 @@
 module NdrUi
   # Provides helper methods for the Twitter Bootstrap framework
   module BootstrapHelper # rubocop:disable Metrics/ModuleLength
+    include ::NdrUi::Bootstrap::AccordionHelper
     include ::NdrUi::Bootstrap::BreadcrumbsHelper
+    include ::NdrUi::Bootstrap::CardHelper
     include ::NdrUi::Bootstrap::DropdownHelper
     include ::NdrUi::Bootstrap::ModalHelper
-    include ::NdrUi::Bootstrap::PanelHelper
+
+    TYPE_STYLE_MAP = {
+      important: :danger,
+      default: :secondary
+    }.freeze
 
     # Creates an alert box of the given +type+. It supports the following alert box types
     # <tt>:alert</tt>, <tt>:danger</tt>, <tt>:info</tt> and <tt>:success</tt>.
@@ -65,10 +71,9 @@ module NdrUi
         end
         options['class'] = classes.join(' ')
 
-        message = button_tag('&times;'.html_safe,
-                             type: 'button',
-                             class: 'close',
-                             "data-dismiss": 'alert') + message if options.delete('dismissible')
+        if options.delete('dismissible')
+          message = button_tag('', type: 'button', class: 'btn-close', 'data-bs-dismiss': 'alert') + message
+        end
         content_tag(:div, message, options)
       end
     end
@@ -87,8 +92,8 @@ module NdrUi
     #   # => <span class="label label-info">Check it out!!</span>
     #
     def bootstrap_label_tag(type, message)
-      classes = ['label', "label-#{type}"]
-      content_tag(:span, message, class: classes.join(' '))
+      style = TYPE_STYLE_MAP[type] || type
+      content_tag(:span, message, class: "badge text-bg-#{style}")
     end
 
     # Creates an bootstrap badge of the given +type+. Bootstrap 3 does not support any types.
@@ -100,13 +105,11 @@ module NdrUi
     # ==== Examples
     #
     #   <%= bootstrap_badge_tag(:success, 'Check it out!!') %>
-    #   # => <span class="badge">Check it out!!</span> <%# Bootstrap 3 %>
+    #   # => <span class="badge rounded-pill text-bg-success">Check it out!!</span>
     #
-    # TODO: In bootstrap 4, these will likely need to be implemented using "pill labels",
-    #       which will once again allow the `type` argument to colour them.
-    #
-    def bootstrap_badge_tag(_type, count)
-      content_tag(:span, count, class: 'badge')
+    def bootstrap_badge_tag(type, count)
+      style = TYPE_STYLE_MAP[type] || type
+      content_tag(:span, count, class: "badge rounded-pill text-bg-#{style}")
     end
 
     # Creates a simple bootstrap navigation caret.
@@ -132,13 +135,15 @@ module NdrUi
     # ==== Examples
     #
     #   <%= bootstrap_dropdown_toggle_tag('Check it out!!') %>
-    #   # => <a href="#" class="dropdown-toggle" data-toggle="dropdown">Check it
-    #   out!! <b class="caret"></b></a>
+    #   # => <a href="#" role="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    #   Check it out!! <b class="caret"></b></a>
     def bootstrap_dropdown_toggle_tag(body)
       link_to(ERB::Util.html_escape(body) + ' '.html_safe + bootstrap_caret_tag,
               '#',
-              class: 'dropdown-toggle',
-              'data-toggle': 'dropdown')
+              role: 'button',
+              class: 'nav-link dropdown-toggle',
+              'data-bs-toggle': 'dropdown',
+              'aria-expanded': 'false')
     end
 
     # Creates a simple bootstrap icon.
@@ -193,7 +198,7 @@ module NdrUi
 
     # Convenience wrapper for a bootstrap_list_link_to with badge
     def bootstrap_list_badge_and_link_to(type, count, name, path)
-      html = content_tag(:div, bootstrap_badge_tag(type, count), class: 'pull-right') + name
+      html = content_tag(:div, bootstrap_badge_tag(type, count), class: 'float-end') + name
       bootstrap_list_link_to(html, path)
     end
 
@@ -219,25 +224,21 @@ module NdrUi
 
     # Identical signature to form_for, but uses NdrUi::BootstrapBuilder.
     # See ActionView::Helpers::FormHelper for details
-    def bootstrap_form_for(record_or_name_or_array, *args, &proc)
+    def bootstrap_form_for(record_or_name_or_array, *args, &_proc)
       options = args.extract_options!
       options[:html] ||= {}
 
       # :horizontal
-      if horizontal = options.delete(:horizontal)
-        # set the form html class for horizontal bootstrap forms
-        options[:html][:class] ||= ''
-        classes = (options[:html][:class].split(' ') << 'form-horizontal').uniq.join(' ')
-        options[:html][:class] = classes
-      end
+      horizontal = options.delete(:horizontal)
 
       # stimuls controller, default `form_controller`
       options[:html][:'data-controller'] ||= ''
-      controllers = (options[:html][:'data-controller'].split(' ') << 'form').uniq.join(' ')
+      controllers = (options[:html][:'data-controller'].split << 'form').uniq.join(' ')
       options[:html][:'data-controller'] = controllers
 
       # We switch autocomplete off by default
       raise 'autocomplete should be defined an html option' if options[:autocomplete]
+
       options[:html][:autocomplete] ||= 'off'
 
       form_for(record_or_name_or_array, *(args << options.merge(builder: NdrUi::BootstrapBuilder))) do |form|
@@ -256,21 +257,14 @@ module NdrUi
       options[:builder] = NdrUi::BootstrapBuilder
       horizontal = options.delete(:horizontal)
 
-      # :horizontal
-      if horizontal
-        # set the form html class for horizontal bootstrap forms
-        options[:html][:class] ||= ''
-        classes = (options[:html][:class].split(' ') << 'form-horizontal').uniq.join(' ')
-        options[:html][:class] = classes
-      end
-
       # stimuls controller, default `form_controller`
       options[:html][:'data-controller'] ||= ''
-      controllers = (options[:html][:'data-controller'].split(' ') << 'form').uniq.join(' ')
+      controllers = (options[:html][:'data-controller'].split << 'form').uniq.join(' ')
       options[:html][:'data-controller'] = controllers
 
       # We switch autocomplete off by default
       raise 'autocomplete should be defined an html option' if options[:autocomplete]
+
       options[:html][:autocomplete] ||= 'off'
 
       form_with(**options) do |form|
@@ -372,22 +366,18 @@ module NdrUi
     #   bootstrap_horizontal_form_group("The Label", [3, 9]) { 'This is the content' }
     #   # =>
     #     <div class="form-group">
-    #       <label class="col-sm-3 control-label">The Label</label>
+    #       <label class="col-sm-3 col-form-label">The Label</label>
     #       <div class="col-sm-9">This is the content</div>
     #     </div>
     #
     def bootstrap_horizontal_form_group(label = nil, ratio = [2, 10], &block)
-      label, ratio = nil, label if label.is_a?(Array)
-
       l, r   = ratio[0..1].map(&:to_i)
       offset = label.nil? ? " col-sm-offset-#{l}" : ''
 
       # Main content:
       content = content_tag(:div, class: "col-sm-#{r}" + offset, &block)
       # Prepend optional label:
-      unless label.nil?
-        content = content_tag(:label, label, class: "col-sm-#{l} control-label") + content
-      end
+      content = content_tag(:label, label, class: "col-sm-#{l} col-form-label") + content unless label.nil?
 
       content_tag(:div, content, class: 'form-group')
     end
@@ -524,7 +514,7 @@ module NdrUi
     # ==== Examples
     #
     #   <%= delete_link('#') %>
-    #   # => <a title="Delete" class="btn btn-xs btn-danger" rel="nofollow" href="#"
+    #   # => <a title="Delete" class="btn btn-xs btn-outline-danger" rel="nofollow" href="#"
     #           data-method="delete" data-confirm="Are you sure?">
     #          <span class="glyphicon glyphicon-trash icon-white"></span>
     #        </a>'
@@ -533,7 +523,7 @@ module NdrUi
 
       defaults = {
         icon: 'trash icon-white', title: 'Delete', path: path,
-        class: 'btn btn-xs btn-danger', method: :delete,
+        class: 'btn btn-xs btn-outline-danger', method: :delete,
         'data-confirm': I18n.translate(:'ndr_ui.confirm_delete', locale: options[:locale])
       }
 
