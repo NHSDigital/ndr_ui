@@ -473,7 +473,7 @@ module NdrUi
 
     test 'bootstrap_delete_link' do
       actual = delete_link('#')
-      expected = '<a title="Delete" class="btn btn-xs btn-danger" rel="nofollow"' \
+      expected = '<a title="Delete" class="btn btn-xs btn-outline-danger" rel="nofollow"' \
                  ' data-method="delete" href="#" data-confirm="Are you sure?">' \
                  '<span class="glyphicon glyphicon-trash icon-white"></span></a>'
       assert_dom_equal expected, actual
@@ -482,7 +482,7 @@ module NdrUi
     test 'bootstrap_delete_link with resource' do
       post   = Post.create
       actual = delete_link(post)
-      expected = '<a title="Delete" class="btn btn-xs btn-danger" rel="nofollow"' \
+      expected = '<a title="Delete" class="btn btn-xs btn-outline-danger" rel="nofollow"' \
                  ' data-method="delete" href="/posts/%<id>d"' \
                  ' data-confirm="Are you sure?">' \
                  '<span class="glyphicon glyphicon-trash icon-white"></span></a>'
@@ -516,7 +516,7 @@ module NdrUi
 
     test 'bootstrap_delete_link with custom confirm' do
       actual = delete_link('#', 'data-confirm': 'Really?')
-      expected = '<a title="Delete" class="btn btn-xs btn-danger" rel="nofollow"' \
+      expected = '<a title="Delete" class="btn btn-xs btn-outline-danger" rel="nofollow"' \
                  ' data-method="delete" href="#" data-confirm="Really?">' \
                  '<span class="glyphicon glyphicon-trash icon-white"></span></a>'
       assert_dom_equal expected, actual
@@ -528,7 +528,7 @@ module NdrUi
       actual   = inline_controls_for(post)
       expected =
         '<div class="btn-toolbar"><div class="btn-group"><a title="Delete"' \
-        ' class="btn btn-xs btn-danger" data-confirm="Are you sure?"' \
+        ' class="btn btn-xs btn-outline-danger" data-confirm="Are you sure?"' \
         ' rel="nofollow" data-method="delete" href="/posts/1">' \
         '<span class="glyphicon glyphicon-trash icon-white"></span></a></div>' \
         '<div class="btn-group"><a title="Edit" class="btn btn-default btn-xs"' \
