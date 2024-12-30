@@ -13,7 +13,7 @@ class InputGroupAddonsTest < ActionView::TestCase
         '<span class="input-group-text">apples</span>' \
         '<input id="post_id" name="post[id]" class="form-control" type="text" />' \
         '</div>' \
-        '<span class="help-block" data-feedback-for="post_id">' \
+        '<span class="form-text" data-feedback-for="post_id">' \
         '<span class="text-danger"></span>' \
         '<span class="text-warning"></span>' \
         '</span>',
@@ -30,7 +30,7 @@ class InputGroupAddonsTest < ActionView::TestCase
         '<input id="post_id" name="post[id]" class="form-control" type="text" />' \
         '<span class="input-group-text">pears</span>' \
         '</div>' \
-        '<span class="help-block" data-feedback-for="post_id">' \
+        '<span class="form-text" data-feedback-for="post_id">' \
         '<span class="text-danger"></span>' \
         '<span class="text-warning"></span>' \
         '</span>',
@@ -48,7 +48,7 @@ class InputGroupAddonsTest < ActionView::TestCase
         '<input id="post_id" name="post[id]" class="form-control" type="text" />' \
         '<span class="input-group-text">pears</span>' \
         '</div>' \
-        '<span class="help-block" data-feedback-for="post_id">' \
+        '<span class="form-text" data-feedback-for="post_id">' \
         '<span class="text-danger"></span>' \
         '<span class="text-warning"></span>' \
         '</span>',

@@ -16,7 +16,7 @@ class DatepickerTest < ActionView::TestCase
         '<span class="glyphicon glyphicon-calendar"></span>' \
         '</span>' \
         '</div>' \
-        '<span class="help-block" data-feedback-for="post_created_at">' \
+        '<span class="form-text" data-feedback-for="post_created_at">' \
         '<span class="text-danger"></span><span class="text-warning"></span>' \
         '</span>',
         form.datepicker_field(:created_at)
@@ -35,7 +35,7 @@ class DatepickerTest < ActionView::TestCase
         '<span class="glyphicon glyphicon-calendar"></span>' \
         '</span>' \
         '</div>' \
-        '<span class="help-block" data-feedback-for="post_created_at">' \
+        '<span class="form-text" data-feedback-for="post_created_at">' \
         '<span class="text-danger"></span><span class="text-warning"></span>' \
         '</span>',
         form.datepicker_field(:created_at, no_future: true)
@@ -56,7 +56,7 @@ class DatepickerTest < ActionView::TestCase
         '<span class="glyphicon glyphicon-calendar"></span>' \
         '</span>' \
         '</div>' \
-        '<span class="help-block" data-feedback-for="post_created_at">' \
+        '<span class="form-text" data-feedback-for="post_created_at">' \
         '<span class="text-danger">not<br>great</span><span class="text-warning"></span>' \
         '</span>',
         form.datepicker_field(:created_at)
@@ -73,7 +73,7 @@ class DatepickerTest < ActionView::TestCase
       assert form.readonly?
       assert_dom_equal(
         '<p class="form-control-plaintext">2001-02-03</p>' \
-        '<span class="help-block" data-feedback-for="post_created_at">' \
+        '<span class="form-text" data-feedback-for="post_created_at">' \
         '<span class="text-danger">not<br>great</span><span class="text-warning"></span>' \
         '</span>',
         form.datepicker_field(:created_at)

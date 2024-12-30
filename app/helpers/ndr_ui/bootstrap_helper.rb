@@ -325,7 +325,7 @@ module NdrUi
     #
     #   <%= bootstrap_progressbar_tag(40), type: :danger %>
     #   # => <div class="progress progress-striped active" title="40%"><div
-    #   class="progress-bar progress-bar-danger" style="width:40%"></div></div>
+    #   class="progress-bar bg-danger" style="width:40%"></div></div>
     #
     # ==== Browser compatibility
     #
@@ -343,7 +343,7 @@ module NdrUi
       classes << 'progress-striped'
 
       type = options.delete('type').to_s
-      type = " progress-bar-#{type}" unless type.blank?
+      type = " bg-#{type}" unless type.blank?
 
       # Animate the progress bar unless something has broken:
       classes << 'active' unless type == 'danger'
@@ -444,12 +444,12 @@ module NdrUi
     # ==== Examples
     #
     #   <%= new_link('#') %>
-    #   # => <a title="New" class="btn btn-primary btn-xs" href="#">
+    #   # => <a title="New" class="btn btn-primary btn-sm" href="#">
     #          <span class="glyphicon glyphicon-plus-sign"></span>
     #        </a>
     #
     #   <%= new_link(Post.new) %>
-    #   # => <a title="New" class="btn btn-primary btn-xs" href="/posts/new">
+    #   # => <a title="New" class="btn btn-primary btn-sm" href="/posts/new">
     #          <span class="glyphicon glyphicon-plus-sign"></span>
     #        </a>
     #
@@ -459,7 +459,7 @@ module NdrUi
       path = new_polymorphic_path(path) if can_generate_polymorphic_path?(path)
 
       defaults = {
-        icon: 'plus-sign', title: 'New', path: path, class: 'btn btn-primary btn-xs'
+        icon: 'plus-sign', title: 'New', path: path, class: 'btn btn-primary btn-sm'
       }
 
       link_to_with_icon(defaults.merge(options))
@@ -474,7 +474,7 @@ module NdrUi
     # ==== Examples
     #
     #   <%= details_link('#') %>
-    #   # => <a title="Details" class="btn btn-default btn-xs" href="#">
+    #   # => <a title="Details" class="btn btn-default btn-sm" href="#">
     #          <span class="glyphicon glyphicon-share-alt"></span>
     #        </a>
     #
@@ -493,7 +493,7 @@ module NdrUi
     # ==== Examples
     #
     #   <%= edit_link(#) %>
-    #   # => <a title="Edit" class="btn btn-default btn-xs" href="#">
+    #   # => <a title="Edit" class="btn btn-default btn-sm" href="#">
     #          <span class="glyphicon glyphicon-pencil"></span>
     #        </a>
     #
@@ -514,7 +514,7 @@ module NdrUi
     # ==== Examples
     #
     #   <%= delete_link('#') %>
-    #   # => <a title="Delete" class="btn btn-xs btn-outline-danger" rel="nofollow" href="#"
+    #   # => <a title="Delete" class="btn btn-sm btn-outline-danger" rel="nofollow" href="#"
     #           data-method="delete" data-confirm="Are you sure?">
     #          <span class="glyphicon glyphicon-trash icon-white"></span>
     #        </a>'
@@ -523,7 +523,7 @@ module NdrUi
 
       defaults = {
         icon: 'trash icon-white', title: 'Delete', path: path,
-        class: 'btn btn-xs btn-outline-danger', method: :delete,
+        class: 'btn btn-sm btn-outline-danger', method: :delete,
         'data-confirm': I18n.translate(:'ndr_ui.confirm_delete', locale: options[:locale])
       }
 
@@ -565,11 +565,11 @@ module NdrUi
     # ==== Examples
     #
     #   <%= link_to_with_icon( { icon: 'trash icon-white', title: 'Delete', path: '#' } ) %>
-    #   # => <a title="Delete" class="btn btn-default btn-xs" href="#">
+    #   # => <a title="Delete" class="btn btn-default btn-sm" href="#">
     #          <span class="glyphicon glyphicon-trash icon-white"></span>
     #        </a>'
     def link_to_with_icon(options = {})
-      options[:class] ||= 'btn btn-default btn-xs'
+      options[:class] ||= 'btn btn-default btn-sm'
       icon = bootstrap_icon_tag(options.delete(:icon))
       content = options.delete(:text) ? icon + ' ' + options[:title] : icon
       link_to content, options.delete(:path), options

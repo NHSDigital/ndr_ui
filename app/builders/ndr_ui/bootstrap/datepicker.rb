@@ -18,7 +18,7 @@ module NdrUi
       #           <span class="glyphicon glyphicon-calendar"></span>
       #         </span>
       #       </div>
-      #       <span class="help-block" data-feedback-for="post_last_updated">
+      #       <span class="form-text" data-feedback-for="post_last_updated">
       #         <span class="text-danger"></span><span class="text-warning"></span>
       #       </span>
       #
