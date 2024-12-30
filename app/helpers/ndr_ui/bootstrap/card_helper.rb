@@ -79,8 +79,8 @@ module NdrUi
 
         options.stringify_keys!
         classes = %w[card mb-3]
-        classes << (CARD_TYPES.include?(options['type'].to_s)) ? "bg-#{options.delete('type')}-subtle" : 'text-bg-light'
-        classes += options['class'].to_s.split
+        classes << (CARD_TYPES.include?(options['type'].to_s) ? "bg-#{options.delete('type')}-subtle" : 'text-bg-light')
+        classes += options['class'].to_s.split if options['class'].present?
         options['class'] = classes.uniq.join(' ')
 
         content_tag(:div, options) do
