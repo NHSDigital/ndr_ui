@@ -24,16 +24,16 @@ module NdrUi
       #
       # ==== Signatures
       #
-      #   bootstrap_breadcrumb(title, linkto, active = false)
+      #   bootstrap_breadcrumb(title, linkto, active: false)
       #
       # ==== Examples
       #
-      #   <%= bootstrap_breadcrumb("Fruits", "#fruits", true) %>
+      #   <%= bootstrap_breadcrumb("Fruits", "#fruits", active: true) %>
       #   # => <li class="breadcrumb-item active"><a href="#fruits">Fruits</a></li>
-      def bootstrap_breadcrumb(title, linkto, active = false)
+      def bootstrap_breadcrumb(title, linkto, active: false)
         content_tag('li',
                     link_to(title, linkto),
-                    { class: "breadcrumb-item#{active ? ' active' : ''}"})
+                    { class: "breadcrumb-item#{active ? ' active' : ''}" })
       end
     end
   end

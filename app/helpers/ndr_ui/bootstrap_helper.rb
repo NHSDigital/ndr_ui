@@ -57,7 +57,7 @@ module NdrUi
       if block_given?
         message = capture(&block)
         options = args[1] || {}
-        return bootstrap_alert_tag(type, message, options)
+        bootstrap_alert_tag(type, message, options)
       else
         message = args[1] || ''
         options = args[2] || {}
@@ -192,7 +192,7 @@ module NdrUi
     #   # => <li class="active"><a href="#fruits" data-bs-toggle="tab">Fruits</a></li>
     def bootstrap_tab_nav_tag(title, linkto, active = false)
       content_tag('li',
-                  link_to(title, linkto, "data-bs-toggle": 'tab'),
+                  link_to(title, linkto, 'data-bs-toggle': 'tab'),
                   active ? { class: 'active' } : {})
     end
 
@@ -343,7 +343,7 @@ module NdrUi
       classes << 'progress-striped'
 
       type = options.delete('type').to_s
-      type = " bg-#{type}" unless type.blank?
+      type = " bg-#{type}" if type.present?
 
       # Animate the progress bar unless something has broken:
       classes << 'active' unless type == 'danger'
@@ -524,7 +524,7 @@ module NdrUi
       defaults = {
         icon: 'trash icon-white', title: 'Delete', path: path,
         class: 'btn btn-sm btn-outline-danger', method: :delete,
-        'data-confirm': I18n.translate(:'ndr_ui.confirm_delete', locale: options[:locale])
+        'data-confirm': I18n.t(:'ndr_ui.confirm_delete', locale: options[:locale])
       }
 
       link_to_with_icon(defaults.merge(options))
@@ -571,7 +571,7 @@ module NdrUi
     def link_to_with_icon(options = {})
       options[:class] ||= 'btn btn-default btn-sm'
       icon = bootstrap_icon_tag(options.delete(:icon))
-      content = options.delete(:text) ? icon + ' ' + options[:title] : icon
+      content = options.delete(:text) ? "#{icon} #{options[:title]}" : icon
       link_to content, options.delete(:path), options
     end
 
