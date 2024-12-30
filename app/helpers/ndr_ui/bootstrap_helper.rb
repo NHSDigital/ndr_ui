@@ -35,8 +35,8 @@ module NdrUi
     # ==== Examples
     #
     #   <%= bootstrap_alert_tag(:info, 'Check it out!!') %>
-    #   # => <div class="alert alert-info"><a href="#" class="close"
-    #   data-dismiss="alert">&times;</a>Check it out!!</div>
+    #   # => <div class="alert alert-info"><a href="#" class="btn-close"
+    #   data-bs-dismiss="alert"></a>Check it out!!</div>
     #
     # You can use a block as well if your alert message is hard to fit into the message parameter.
     # ERb example:
@@ -44,8 +44,8 @@ module NdrUi
     #   <%= bootstrap_alert_tag(:info) do %>
     #     Check it out!!
     #   <% end %>
-    #   # => <div class="alert alert-info"><button type="button" class="close"
-    #   data-dismiss="alert">&times;</button>Check it out!!</div>
+    #   # => <div class="alert alert-info"><button type="button" class="btn-close"
+    #   data-bs-dismiss="alert"></button>Check it out!!</div>
     #
     # Ids for css and/or javascript are easy to produce:
     #
@@ -189,10 +189,10 @@ module NdrUi
     # ==== Examples
     #
     #   <%= bootstrap_tab_nav_tag("Fruits", "#fruits", true) %>
-    #   # => <li class="active"><a href="#fruits" data-toggle="tab">Fruits</a></li>
+    #   # => <li class="active"><a href="#fruits" data-bs-toggle="tab">Fruits</a></li>
     def bootstrap_tab_nav_tag(title, linkto, active = false)
       content_tag('li',
-                  link_to(title, linkto, "data-toggle": 'tab'),
+                  link_to(title, linkto, "data-bs-toggle": 'tab'),
                   active ? { class: 'active' } : {})
     end
 

@@ -64,7 +64,7 @@ module NdrUi
     #   <div id="fruit" class="accordion">
     #     <div class="panel panel-default">
     #       <div class="panel-heading">
-    #         <a href="#fruit_1" data-parent="#fruit" data-toggle="collapse">Apple</a>
+    #         <a href="#fruit_1" data-bs-parent="#fruit" data-bs-toggle="collapse">Apple</a>
     #       </div>
     #       <div class="panel-collapse collapse" id="fruit_1">
     #         <div class="panel-body">
@@ -74,7 +74,7 @@ module NdrUi
     #     </div>
     #     <div class="panel panel-default">
     #       <div class="panel-heading">
-    #         <a href="#fruit_2" data-parent="#fruit" data-toggle="collapse">Orange</a>
+    #         <a href="#fruit_2" data-bs-parent="#fruit" data-bs-toggle="collapse">Orange</a>
     #       </div>
     #       <div class="panel-collapse collapse in" id="fruit_2">
     #         <div class="panel-body">

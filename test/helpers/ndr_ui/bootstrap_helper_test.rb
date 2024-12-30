@@ -119,11 +119,11 @@ module NdrUi
     end
 
     test 'bootstrap_tab_nav_tag' do
-      assert_dom_equal '<li><a href="#fruits" data-toggle="tab">Fruits</a></li>',
+      assert_dom_equal '<li><a href="#fruits" data-bs-toggle="tab">Fruits</a></li>',
                        bootstrap_tab_nav_tag('Fruits', '#fruits')
-      assert_dom_equal '<li><a href="#fruits" data-toggle="tab">Fruits</a></li>',
+      assert_dom_equal '<li><a href="#fruits" data-bs-toggle="tab">Fruits</a></li>',
                        bootstrap_tab_nav_tag('Fruits', '#fruits', false)
-      assert_dom_equal '<li class="active"><a href="#fruits" data-toggle="tab">Fruits</a></li>',
+      assert_dom_equal '<li class="active"><a href="#fruits" data-bs-toggle="tab">Fruits</a></li>',
                        bootstrap_tab_nav_tag('Fruits', '#fruits', true)
     end
 
