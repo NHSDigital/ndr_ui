@@ -15,9 +15,9 @@ module NdrUi
         assert_dom_equal '<li class="breadcrumb-item"><a href="#fruits">Fruits</a></li>',
                          bootstrap_breadcrumb('Fruits', '#fruits')
         assert_dom_equal '<li class="breadcrumb-item"><a href="#fruits">Fruits</a></li>',
-                         bootstrap_breadcrumb('Fruits', '#fruits', active: false)
+                         bootstrap_breadcrumb('Fruits', '#fruits', false)
         assert_dom_equal '<li class="breadcrumb-item active"><a href="#fruits">Fruits</a></li>',
-                         bootstrap_breadcrumb('Fruits', '#fruits', active: true)
+                         bootstrap_breadcrumb('Fruits', '#fruits', true)
       end
     end
   end
