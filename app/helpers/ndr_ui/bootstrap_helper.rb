@@ -12,6 +12,15 @@ module NdrUi
       default: :secondary
     }.freeze
 
+    # ensure `form-control` and `form-select` classes added to select_tag
+    def select_tag(name, option_tags = nil, options = {})
+      options = options.symbolize_keys
+      css_classes = css_class_options_merge(css_classes, %w[form-control form-select])
+      options[:class] = css_classes.uniq.join(' ')
+
+      super(name, option_tags, options)
+    end
+
     # Creates an alert box of the given +type+. It supports the following alert box types
     # <tt>:alert</tt>, <tt>:danger</tt>, <tt>:info</tt> and <tt>:success</tt>.
     #
