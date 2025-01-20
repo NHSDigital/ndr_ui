@@ -14,9 +14,7 @@ module NdrUi
 
     # ensure `form-control` and `form-select` classes added to select_tag
     def select_tag(name, option_tags = nil, options = {})
-      options = options.symbolize_keys
-      css_classes = css_class_options_merge(css_classes, %w[form-control form-select])
-      options[:class] = css_classes.uniq.join(' ')
+      options = css_class_options_merge(options, %w[form-control form-select])
 
       super(name, option_tags, options)
     end
