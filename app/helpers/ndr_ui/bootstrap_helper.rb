@@ -161,10 +161,17 @@ module NdrUi
     #
     # ==== Examples
     #
-    #   <%= bootstrap_icon_tag(:search) %>
+    #   <%= bootstrap_icon_tag(:search, :bi) %>
+    #   # => <i class="bi-search"></i>
+    #
+    #   <%= bootstrap_icon_tag(:search, :glyphicon) %>
     #   # => <span class="glyphicon glyphicon-search"></span>
-    def bootstrap_icon_tag(type)
-      content_tag(:span, '', class: "glyphicon glyphicon-#{type}")
+    def bootstrap_icon_tag(type, set = :glyphicon)
+      if set == :bi
+        content_tag(:i, '', class: "bi-#{type}")
+      else
+        content_tag(:span, '', class: "glyphicon glyphicon-#{type}")
+      end
     end
 
     # Creates a simple bootstrap icon spinner.

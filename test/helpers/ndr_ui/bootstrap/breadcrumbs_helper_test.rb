@@ -5,9 +5,9 @@ module NdrUi
     # Test bootstrap breadcrumbs helpers
     class BreadcrumbsHelperTest < ActionView::TestCase
       test 'bootstrap_breadcrumbs' do
-        assert_dom_equal '<ol class="breadcrumb"></ol>',
+        assert_dom_equal '<ol class="breadcrumb bg-body-tertiary p-2"></ol>',
                          bootstrap_breadcrumbs([])
-        assert_dom_equal '<ol class="breadcrumb"><li class="breadcrumb-item"><a href="#fruits">Fruits</a></li></ol>',
+        assert_dom_equal '<ol class="breadcrumb bg-body-tertiary p-2"><li class="breadcrumb-item"><a href="#fruits">Fruits</a></li></ol>',
                          bootstrap_breadcrumbs([bootstrap_breadcrumb('Fruits', '#fruits')])
       end
 

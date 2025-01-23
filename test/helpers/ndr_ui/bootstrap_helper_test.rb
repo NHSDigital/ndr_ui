@@ -107,7 +107,9 @@ module NdrUi
 
     test 'bootstrap_icon_tag' do
       assert_dom_equal '<span class="glyphicon glyphicon-search"></span>',
-                       bootstrap_icon_tag(:search)
+                       bootstrap_icon_tag(:search, :glyphicon)
+      assert_dom_equal '<i class="bi-search"></i>',
+                       bootstrap_icon_tag(:search, :bi)
       assert bootstrap_icon_tag(:search).html_safe?, 'bootstrap_caret_tag is not html_safe'
     end
 
