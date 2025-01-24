@@ -24,7 +24,7 @@ module NdrUi
       #
       # ==== Signatures
       #
-      #   bootstrap_breadcrumb(title, linkto, active: false)
+      #   bootstrap_breadcrumb(title, linkto, active = false)
       #
       # ==== Examples
       #
