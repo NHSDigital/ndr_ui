@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rails', '>= 6.1', '< 7.3'
   spec.add_dependency 'sprockets', '>= 4.0'
   spec.add_dependency 'sprockets-rails', '>= 3.0.0'
+  # See https://github.com/rails/rails/issues/54260.
   spec.add_dependency 'concurrent-ruby', '1.3.4'
 
   # Rails 6.1 and 7.0 do not support sqlite3 2.x; they specify gem "sqlite3", "~> 1.4"
