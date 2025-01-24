@@ -1,5 +1,8 @@
 ## [Unreleased]
-* no unreleased changes *
+* Support Bootstrap to v5.3.3
+* Drop support for Bootstrap 3/4
+* include bootstrap-icons library
+* replace panel helpers to card helpers
 
 ## 4.1.1 / 2024-11-20
 ### Fixed
