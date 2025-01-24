@@ -1,6 +1,8 @@
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
 @import "bootstrap";
+
+//NOTE: font-dir: "." and "./assets" works, "./fonts" doesn't. may vary between systems
+$bootstrap-icons-font-dir: ".";
+@import "bootstrap-icons";
 
 // Fieldsets don't behave properly with Bootstrap in Firefox
 // https://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content/17863685#17863685
@@ -12,7 +14,7 @@
 
 // for input fields with input-addons, remove background and border when the form is readonly. 
 .input-group {
-  .form-control-static + .input-group-addon {
+  .form-control-plaintext + .input-group-text {
     background: none;
     border:0;
   }

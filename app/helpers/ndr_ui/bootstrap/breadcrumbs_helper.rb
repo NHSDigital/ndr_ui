@@ -13,11 +13,11 @@ module NdrUi
       #   <%= bootstrap_breadcrumbs([
       #     bootstrap_breadcrumb("Fruits", "#fruits")
       #   ]) %>
-      #   # => <ol class="breadcrumb">
+      #   # => <ol class="breadcrumb bg-body-tertiary p-2">
       #          <li class="active"><a href="#fruits">Fruits</a></li>
       #        </ol>
       def bootstrap_breadcrumbs(breadcrumbs)
-        content_tag('ol', safe_join(breadcrumbs), class: 'breadcrumb')
+        content_tag('ol', safe_join(breadcrumbs), class: 'breadcrumb bg-body-tertiary p-2')
       end
 
       # Creates a bootstrap breadcrumb.
@@ -29,11 +29,11 @@ module NdrUi
       # ==== Examples
       #
       #   <%= bootstrap_breadcrumb("Fruits", "#fruits", true) %>
-      #   # => <li class="active"><a href="#fruits">Fruits</a></li>
+      #   # => <li class="breadcrumb-item active"><a href="#fruits">Fruits</a></li>
       def bootstrap_breadcrumb(title, linkto, active = false)
         content_tag('li',
                     link_to(title, linkto),
-                    active ? { class: 'active' } : {})
+                    { class: "breadcrumb-item#{active ? ' active' : ''}" })
       end
     end
   end
