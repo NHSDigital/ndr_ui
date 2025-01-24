@@ -1,4 +1,8 @@
 ## [Unreleased]
+* no unreleased changes *
+
+## 4.1.2 / 2025-01-24
+### Fixed
 * Bump bootstrap-datepicker to 1.7.1
 
 ## 4.1.1 / 2024-11-20
