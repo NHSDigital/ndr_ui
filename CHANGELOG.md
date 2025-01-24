@@ -1,4 +1,8 @@
 ## [Unreleased]
+* no unreleased changes *
+
+## 5.0.0 / 2025-01-24
+### Changed
 * Support Bootstrap to v5.3.3
 * Drop support for Bootstrap 3/4
 * include bootstrap-icons library
