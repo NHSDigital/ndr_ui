@@ -135,7 +135,7 @@ module NdrUi
       refute current_page?(inbox_path)
 
       html = content_tag(:div, bootstrap_badge_tag(:important, 99), class: 'float-end')
-      html += 'Inbox'
+      html += content_tag(:div, 'Inbox', class: 'pe-5')
       assert_dom_equal content_tag(:li, link_to(html, inbox_path, class: 'dropdown-item')),
                        bootstrap_list_badge_and_link_to(:important, 99, 'Inbox', inbox_path)
     end
