@@ -218,7 +218,7 @@ module NdrUi
       end
 
       def bootstrap_modal_button(label)
-        button_tag(label, class: 'btn btn-default', 'data-bs-dismiss': 'modal')
+        button_tag(label, type: 'button', class: 'btn btn-default', 'data-bs-dismiss': 'modal')
       end
 
       private
