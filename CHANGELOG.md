@@ -1,5 +1,6 @@
 ## [Unreleased]
-* no unreleased changes *
+* fix cancel modal button
+* re-introdce btn-default style
 
 ## 5.0.0 / 2025-01-24
 ### Changed
