@@ -203,11 +203,11 @@ module NdrUi
     # ==== Examples
     #
     #   <%= bootstrap_tab_nav_tag("Fruits", "#fruits", true) %>
-    #   # => <li class="active"><a href="#fruits" data-bs-toggle="tab">Fruits</a></li>
+    #   # => <li class="nav-item"><a class="nav-link active" href="#fruits" data-bs-toggle="tab">Fruits</a></li>
     def bootstrap_tab_nav_tag(title, linkto, active = false)
       content_tag('li',
-                  link_to(title, linkto, 'data-bs-toggle': 'tab'),
-                  active ? { class: 'active' } : {})
+                  link_to(title, linkto, 'data-bs-toggle': 'tab', class: "nav-link#{active ? ' active' : ''}"),
+                  class: 'nav-item')
     end
 
     # Convenience wrapper for a bootstrap_list_link_to with badge
