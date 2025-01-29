@@ -298,14 +298,14 @@ module NdrUi
     # TODO: bootstrap_pagination_tag(*args, &block)
 
     test 'button_control_group' do
-      assert_dom_equal '<div class="form-group"><div class="col-sm-9 col-sm-offset-3">' \
+      assert_dom_equal '<div class="form-group"><div class="col-sm-9 offset-sm-3">' \
                        'Apples</div></div>',
                        button_control_group('Apples')
 
       html = button_control_group(class: 'some_class') do
         'Pears'
       end
-      assert_dom_equal '<div class="form-group"><div class="col-sm-9 col-sm-offset-3">' \
+      assert_dom_equal '<div class="form-group"><div class="col-sm-9 offset-sm-3">' \
                        '<div class="some_class">Pears</div></div></div>',
                        html
 
@@ -346,7 +346,7 @@ module NdrUi
 
       # Test with no label:
       actual   = bootstrap_horizontal_form_group { 'This is the content' }
-      expected = '<div class="form-group"><div class="col-sm-10 col-sm-offset-2">' \
+      expected = '<div class="form-group"><div class="col-sm-10 offset-sm-2">' \
                  'This is the content</div></div>'
       assert_dom_equal expected, actual
     end

@@ -307,7 +307,7 @@ module NdrUi
     #   <%= button_control_group("Apples", class: "some_class") %>
     #   # =>
     #   <div class="form-group">
-    #     <div class="col-sm-9 col-sm-offset-3">
+    #     <div class="col-sm-9 offset-sm-3">
     #       <div class="some_class">Apples</div>
     #     </div>
     #   </div>
@@ -387,7 +387,7 @@ module NdrUi
     #
     def bootstrap_horizontal_form_group(label = nil, ratio = [2, 10], &block)
       l, r   = ratio[0..1].map(&:to_i)
-      offset = label.nil? ? " col-sm-offset-#{l}" : ''
+      offset = label.nil? ? " offset-sm-#{l}" : ''
 
       # Main content:
       content = content_tag(:div, class: "col-sm-#{r}" + offset, &block)
