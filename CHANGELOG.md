@@ -1,11 +1,14 @@
 ## [Unreleased]
+* no unreleased changes *
+
+## 5.0.1 / 2025-02-03
+### Fixed
 * fix cancel modal button
 * re-introdce `btn-default` style
 * fix `bootstrap_tab_nav_tag` helper method with required classes
 * allow more padding at the end for `bootstrap_list_badge_and_link_to`
 * fix offset class name in line with Bootstrap 5 upgrade
 * fix `bootstrap_alert_tag` style with close button option
-
 
 ## 5.0.0 / 2025-01-24
 ### Changed
