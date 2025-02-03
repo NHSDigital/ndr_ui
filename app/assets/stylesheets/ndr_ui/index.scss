@@ -19,3 +19,9 @@ $bootstrap-icons-font-dir: ".";
     border:0;
   }
 }
+
+// Bootstrap don't have btn-default anymore
+// however, we keep btn-default in codebase/helpers and set global default setting here.
+.btn-default {
+  @extend .btn-outline-secondary;
+}

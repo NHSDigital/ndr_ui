@@ -51,8 +51,8 @@ module NdrUi
     #   <%= bootstrap_alert_tag(:info) do %>
     #     Check it out!!
     #   <% end %>
-    #   # => <div class="alert alert-info"><button type="button" class="btn-close"
-    #   data-bs-dismiss="alert"></button>Check it out!!</div>
+    #   # => <div class="alert alert-info">Check it out!!
+    #        <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>
     #
     # Ids for css and/or javascript are easy to produce:
     #
@@ -79,7 +79,7 @@ module NdrUi
         options['class'] = classes.join(' ')
 
         if options.delete('dismissible')
-          message = button_tag('', type: 'button', class: 'btn-close', 'data-bs-dismiss': 'alert') + message
+          message = message.html_safe + button_tag('', type: 'button', class: 'btn-close', 'data-bs-dismiss': 'alert')
         end
         content_tag(:div, message, options)
       end
@@ -203,16 +203,18 @@ module NdrUi
     # ==== Examples
     #
     #   <%= bootstrap_tab_nav_tag("Fruits", "#fruits", true) %>
-    #   # => <li class="active"><a href="#fruits" data-bs-toggle="tab">Fruits</a></li>
+    #   # => <li class="nav-item"><a class="nav-link active" href="#fruits" data-bs-toggle="tab">Fruits</a></li>
     def bootstrap_tab_nav_tag(title, linkto, active = false)
       content_tag('li',
-                  link_to(title, linkto, 'data-bs-toggle': 'tab'),
-                  active ? { class: 'active' } : {})
+                  link_to(title, linkto, 'data-bs-toggle': 'tab', class: "nav-link#{active ? ' active' : ''}"),
+                  class: 'nav-item')
     end
 
     # Convenience wrapper for a bootstrap_list_link_to with badge
     def bootstrap_list_badge_and_link_to(type, count, name, path)
-      html = content_tag(:div, bootstrap_badge_tag(type, count), class: 'float-end') + name
+      html = content_tag(:div, bootstrap_badge_tag(type, count), class: 'float-end') +
+             content_tag(:div, name, class: 'pe-5')
+
       bootstrap_list_link_to(html, path)
     end
 
@@ -306,7 +308,7 @@ module NdrUi
     #   <%= button_control_group("Apples", class: "some_class") %>
     #   # =>
     #   <div class="form-group">
-    #     <div class="col-sm-9 col-sm-offset-3">
+    #     <div class="col-sm-9 offset-sm-3">
     #       <div class="some_class">Apples</div>
     #     </div>
     #   </div>
@@ -386,7 +388,7 @@ module NdrUi
     #
     def bootstrap_horizontal_form_group(label = nil, ratio = [2, 10], &block)
       l, r   = ratio[0..1].map(&:to_i)
-      offset = label.nil? ? " col-sm-offset-#{l}" : ''
+      offset = label.nil? ? " offset-sm-#{l}" : ''
 
       # Main content:
       content = content_tag(:div, class: "col-sm-#{r}" + offset, &block)
