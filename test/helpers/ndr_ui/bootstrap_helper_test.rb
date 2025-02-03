@@ -8,17 +8,17 @@ module NdrUi
   # Test bootstrap helpers
   class BootstrapHelperTest < ActionView::TestCase
     test 'bootstrap_alert_tag with message parameter' do
-      assert_dom_equal '<div class="alert alert-danger alert-dismissible">' \
+      assert_dom_equal '<div class="alert alert-danger alert-dismissible">Apples' \
                        '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
-                       'Apples</div>',
+                       '</div>',
                        bootstrap_alert_tag(:danger, 'Apples')
-      assert_dom_equal '<div class="alert alert-warning alert-dismissible">' \
+      assert_dom_equal '<div class="alert alert-warning alert-dismissible">Apples' \
                        '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
-                       'Apples</div>',
+                       '</div>',
                        bootstrap_alert_tag(:warning, 'Apples')
-      assert_dom_equal '<div class="alert alert-info alert-dismissible">' \
+      assert_dom_equal '<div class="alert alert-info alert-dismissible">Apples' \
                        '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
-                       'Apples</div>',
+                       '</div>',
                        bootstrap_alert_tag(:info, 'Apples')
       assert_dom_equal '<div class="alert alert-success alert-dismissible">' \
                        '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
@@ -28,15 +28,15 @@ module NdrUi
                        '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
                        '</div>',
                        bootstrap_alert_tag(:success, '')
-      assert_dom_equal '<div class="alert alert-warning alert-dismissible">' \
+      assert_dom_equal '<div class="alert alert-warning alert-dismissible">Apples' \
                        '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
-                       'Apples</div>',
+                       '</div>',
                        bootstrap_alert_tag(:warning, 'Apples', dismissible: true)
       assert_dom_equal '<div class="alert alert-warning">Apples</div>',
                        bootstrap_alert_tag(:warning, 'Apples', dismissible: false)
-      assert_dom_equal '<div id="apple_123" class="alert alert-warning alert-dismissible">' \
+      assert_dom_equal '<div id="apple_123" class="alert alert-warning alert-dismissible">Apples' \
                        '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
-                       'Apples</div>',
+                       '</div>',
                        bootstrap_alert_tag(:warning, 'Apples', dismissible: true, id: 'apple_123')
       assert_dom_equal '<div id="apple_123" class="alert alert-warning">Apples</div>',
                        bootstrap_alert_tag(:warning, 'Apples', dismissible: false, id: 'apple_123')
@@ -45,9 +45,9 @@ module NdrUi
     end
 
     test 'bootstrap_alert_tag with message block' do
-      assert_dom_equal '<div class="alert alert-info alert-dismissible">' \
+      assert_dom_equal '<div class="alert alert-info alert-dismissible">Pears' \
                        '<button name="button" type="button" class="btn-close" data-bs-dismiss="alert"></button>' \
-                       'Pears</div>',
+                       '</div>',
                        bootstrap_alert_tag(:info) { 'Pears' }
 
       assert_dom_equal '<div class="alert alert-danger alert-dismissible">' \

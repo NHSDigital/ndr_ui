@@ -51,8 +51,8 @@ module NdrUi
     #   <%= bootstrap_alert_tag(:info) do %>
     #     Check it out!!
     #   <% end %>
-    #   # => <div class="alert alert-info"><button type="button" class="btn-close"
-    #   data-bs-dismiss="alert"></button>Check it out!!</div>
+    #   # => <div class="alert alert-info">Check it out!!
+    #        <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>
     #
     # Ids for css and/or javascript are easy to produce:
     #
@@ -79,7 +79,7 @@ module NdrUi
         options['class'] = classes.join(' ')
 
         if options.delete('dismissible')
-          message = button_tag('', type: 'button', class: 'btn-close', 'data-bs-dismiss': 'alert') + message
+          message = message.html_safe + button_tag('', type: 'button', class: 'btn-close', 'data-bs-dismiss': 'alert')
         end
         content_tag(:div, message, options)
       end
