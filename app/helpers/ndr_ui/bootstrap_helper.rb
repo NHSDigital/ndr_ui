@@ -212,8 +212,9 @@ module NdrUi
 
     # Convenience wrapper for a bootstrap_list_link_to with badge
     def bootstrap_list_badge_and_link_to(type, count, name, path)
-      html = content_tag(:div, bootstrap_badge_tag(type, count), class: 'float-end') + 
-               content_tag(:div, name, class: 'pe-5')
+      html = content_tag(:div, bootstrap_badge_tag(type, count), class: 'float-end') +
+             content_tag(:div, name, class: 'pe-5')
+
       bootstrap_list_link_to(html, path)
     end
 
