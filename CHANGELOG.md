@@ -1,5 +1,5 @@
 ## [Unreleased]
-* no unreleased changes *
+* add row class to horizontal form row (.form-group)
 
 ## 5.0.1 / 2025-02-03
 ### Fixed

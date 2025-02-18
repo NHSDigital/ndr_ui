@@ -381,7 +381,7 @@ module NdrUi
     # ==== Examples
     #   bootstrap_horizontal_form_group("The Label", [3, 9]) { 'This is the content' }
     #   # =>
-    #     <div class="form-group">
+    #     <div class="form-group row">
     #       <label class="col-sm-3 col-form-label">The Label</label>
     #       <div class="col-sm-9">This is the content</div>
     #     </div>
@@ -395,7 +395,7 @@ module NdrUi
       # Prepend optional label:
       content = content_tag(:label, label, class: "col-sm-#{l} col-form-label") + content unless label.nil?
 
-      content_tag(:div, content, class: 'form-group')
+      content_tag(:div, content, class: 'form-group row')
     end
 
     # This helper produces a pair of HTML dt, dd tags to display name and value pairs.
