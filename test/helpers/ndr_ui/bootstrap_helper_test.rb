@@ -298,14 +298,14 @@ module NdrUi
     # TODO: bootstrap_pagination_tag(*args, &block)
 
     test 'button_control_group' do
-      assert_dom_equal '<div class="form-group"><div class="col-sm-9 offset-sm-3">' \
+      assert_dom_equal '<div class="form-group row"><div class="col-sm-9 offset-sm-3">' \
                        'Apples</div></div>',
                        button_control_group('Apples')
 
       html = button_control_group(class: 'some_class') do
         'Pears'
       end
-      assert_dom_equal '<div class="form-group"><div class="col-sm-9 offset-sm-3">' \
+      assert_dom_equal '<div class="form-group row"><div class="col-sm-9 offset-sm-3">' \
                        '<div class="some_class">Pears</div></div></div>',
                        html
 
@@ -334,19 +334,19 @@ module NdrUi
     test 'bootstrap_horizontal_form_group' do
       # Test with standard columns:
       actual   = bootstrap_horizontal_form_group('The Label') { 'This is the content' }
-      expected = '<div class="form-group"><label class="col-sm-2 col-form-label">' \
+      expected = '<div class="form-group row"><label class="col-sm-2 col-form-label">' \
                  'The Label</label><div class="col-sm-10">This is the content</div></div>'
       assert_dom_equal expected, actual
 
       # Test with different columns:
       actual   = bootstrap_horizontal_form_group('The Label', [3, 9]) { 'This is the content' }
-      expected = '<div class="form-group"><label class="col-sm-3 col-form-label">' \
+      expected = '<div class="form-group row"><label class="col-sm-3 col-form-label">' \
                  'The Label</label><div class="col-sm-9">This is the content</div></div>'
       assert_dom_equal expected, actual
 
       # Test with no label:
       actual   = bootstrap_horizontal_form_group { 'This is the content' }
-      expected = '<div class="form-group"><div class="col-sm-10 offset-sm-2">' \
+      expected = '<div class="form-group row"><div class="col-sm-10 offset-sm-2">' \
                  'This is the content</div></div>'
       assert_dom_equal expected, actual
     end

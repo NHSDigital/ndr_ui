@@ -18,7 +18,7 @@ module NdrUi
         div_content << text_field_without_inline_errors(method, options)
         div_content << @template.content_tag(:span, append, class: 'input-group-text') if append.present?
 
-        @template.content_tag(:div, @template.safe_join(div_content), class: 'input-group')
+        @template.content_tag(:div, @template.safe_join(div_content), class: 'input-group has-validation')
       end
     end
   end

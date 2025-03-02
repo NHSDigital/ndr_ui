@@ -7,9 +7,9 @@ $bootstrap-icons-font-dir: ".";
 // Fieldsets don't behave properly with Bootstrap in Firefox
 // https://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content/17863685#17863685
 @-moz-document url-prefix() {
-    fieldset {
-        display: table-cell;
-    }
+  fieldset {
+    display: table-cell;
+  }
 }
 
 // for input fields with input-addons, remove background and border when the form is readonly. 
@@ -17,6 +17,22 @@ $bootstrap-icons-font-dir: ".";
   .form-control-plaintext + .input-group-text {
     background: none;
     border:0;
+  }
+}
+
+// UI fix for .input-group in readonly mode
+form .input-group {
+  // for input-addons in readonly mode, remove background and border
+  .form-control-plaintext + .input-group-text,
+  .input-group-text:has(+ .form-control-plaintext) {
+    background: none;
+    border:0;
+  }
+
+  // for readonly fields following or followed by input-addons, set auto width to display content in one line
+  .form-control-plaintext:has(+ .input-group-text),
+  .input-group-text + .form-control-plaintext {
+    width: auto;
   }
 }
 

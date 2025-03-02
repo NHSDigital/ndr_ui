@@ -227,8 +227,8 @@ module NdrUi
       def bootstrap_modal_classes(options)
         options = options.stringify_keys
 
-        classes = %w(modal-dialog)
-        classes << "modal-#{options['size']}" if MODAL_SIZES.include?(options['size'])
+        classes = %w[modal-dialog]
+        classes << "modal-#{options['size']}" if MODAL_SIZES.include?(options['size'].to_s)
         classes.join(' ')
       end
     end
