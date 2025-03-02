@@ -228,7 +228,7 @@ module NdrUi
         options = options.stringify_keys
 
         classes = %w(modal-dialog)
-        classes << "modal-#{options['size']}" if MODAL_SIZES.include?(options['size'])
+        classes << "modal-#{options['size']}" if MODAL_SIZES.include?(options['size'].to_s)
         classes.join(' ')
       end
     end

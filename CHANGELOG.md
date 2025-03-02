@@ -1,5 +1,6 @@
 ## [Unreleased]
 * add row class to horizontal form row (.form-group)
+* add `has-validation` class to input fields with addons
 
 ## 5.0.1 / 2025-02-03
 ### Fixed
