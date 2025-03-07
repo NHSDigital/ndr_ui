@@ -1,4 +1,8 @@
 ## [Unreleased]
+* no unreleased changes *
+
+## 5.0.3 / 2025-03-07
+### Fixed
 * fix input group UI style in form and readonly mode
 
 ## 5.0.2 / 2025-03-02
