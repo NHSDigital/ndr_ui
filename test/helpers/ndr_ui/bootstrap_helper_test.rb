@@ -156,6 +156,7 @@ module NdrUi
       end
       assert_select 'form#preserve_me[autocomplete=off][action="/posts"]'
 
+      reset_output_buffer!
       @output_buffer = bootstrap_form_for(
         :post,
         url: posts_path,
@@ -165,6 +166,7 @@ module NdrUi
       end
       assert_select 'form#preserve_me.form-inline[autocomplete=off][action="/posts"]'
 
+      reset_output_buffer!
       @output_buffer = bootstrap_form_for(
         :post,
         url: posts_path,
@@ -174,6 +176,7 @@ module NdrUi
       end
       assert_select 'form#preserve_me[data-controller=form][autocomplete=off][action="/posts"]'
 
+      reset_output_buffer!
       @output_buffer = bootstrap_form_for(
         :post,
         url: posts_path,
@@ -183,6 +186,7 @@ module NdrUi
       end
       assert_select 'form#preserve_me[data-controller="additional form"][autocomplete=off][action="/posts"]'
 
+      reset_output_buffer!
       @output_buffer = bootstrap_form_for(
         :post,
         url: posts_path,
@@ -210,6 +214,7 @@ module NdrUi
       end
       assert_select 'form#preserve_me[autocomplete=off][action="/posts"]'
 
+      reset_output_buffer!
       @output_buffer = bootstrap_form_with(
         model: Post.new,
         html: { id: 'preserve_me', class: 'form-inline' }
@@ -218,6 +223,7 @@ module NdrUi
       end
       assert_select 'form#preserve_me.form-inline[autocomplete=off][action="/posts"]'
 
+      reset_output_buffer!
       @output_buffer = bootstrap_form_with(
         model: Post.new,
         html: { id: 'preserve_me' }
@@ -226,6 +232,7 @@ module NdrUi
       end
       assert_select 'form#preserve_me[data-controller=form][autocomplete=off][action="/posts"]'
 
+      reset_output_buffer!
       @output_buffer = bootstrap_form_with(
         model: Post.new,
         html: { id: 'preserve_me', 'data-controller': 'additional' }
@@ -234,6 +241,7 @@ module NdrUi
       end
       assert_select 'form#preserve_me[data-controller="additional form"][autocomplete=off][action="/posts"]'
 
+      reset_output_buffer!
       @output_buffer = bootstrap_form_with(
         model: Post.new,
         horizontal: true, html: { id: 'preserve_me' }
@@ -242,6 +250,7 @@ module NdrUi
       end
       assert_select 'form#preserve_me.form-horizontal[autocomplete=off][action="/posts"]'
 
+      reset_output_buffer!
       @output_buffer = bootstrap_form_with(
         url: posts_path,
         html: { id: 'preserve_me' }
@@ -250,6 +259,7 @@ module NdrUi
       end
       assert_select 'form#preserve_me[autocomplete=off][action="/posts"]'
 
+      reset_output_buffer!
       @output_buffer = bootstrap_form_with(
         url: posts_path,
         html: { id: 'preserve_me', class: 'form-inline' }
@@ -258,6 +268,7 @@ module NdrUi
       end
       assert_select 'form#preserve_me.form-inline[autocomplete=off][action="/posts"]'
 
+      reset_output_buffer!
       @output_buffer = bootstrap_form_with(
         url: posts_path,
         horizontal: true, html: { id: 'preserve_me' }
@@ -494,13 +505,14 @@ module NdrUi
     end
 
     test 'non authorisable link with non-resource is not deprecated' do
-      assert_not_deprecated { details_link('#') }
+      assert_not_deprecated(active_support_deprecator) { details_link('#') }
     end
 
     test 'authorisable link with non-resource is deprecated' do
       stubs(can?: true)
 
-      actual   = assert_deprecated(/authorise a non-resource object/) { details_link('#') }
+      actual   = assert_deprecated(/authorise a non-resource object/,
+                                   active_support_deprecator) { details_link('#') }
       expected = '<a title="Details" class="btn btn-default btn-xs" href="#">' \
                  '<span class="glyphicon glyphicon-share-alt"></span></a>'
 
@@ -563,5 +575,11 @@ module NdrUi
     end
 
     # TODO: bootstrap_will_paginate(collection = nil, options = {})
+
+    def active_support_deprecator
+      return nil unless Rails.application.respond_to?(:deprecators) # Rails <= 7.0
+
+      Rails.application.deprecators[:active_support]
+    end
   end
 end

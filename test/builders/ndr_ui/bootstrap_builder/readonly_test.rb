@@ -44,7 +44,7 @@ class ReadonlyTest < ActionView::TestCase
     end
 
     bootstrap_form_for post do |form|
-      form.fields_for(:sub_records, readonly: true) do |sub_form|
+      form.fields_for(:sub_records, nil, readonly: true) do |sub_form|
         assert sub_form.readonly?
         refute form.readonly?
       end
@@ -63,6 +63,7 @@ class ReadonlyTest < ActionView::TestCase
     assert_select 'input[type=text]#post_created_at'
     assert_select 'p.form-control-static', 0
 
+    reset_output_buffer!
     @output_buffer =
       bootstrap_form_for post, readonly: true do |form|
         form.text_field :created_at
@@ -95,6 +96,7 @@ class ReadonlyTest < ActionView::TestCase
     assert_select 'input[type=hidden]#post_created_at'
     assert_select 'p.form-control-static', 0
 
+    reset_output_buffer!
     @output_buffer =
       bootstrap_form_for post, readonly: true do |form|
         form.hidden_field :created_at
@@ -112,6 +114,7 @@ class ReadonlyTest < ActionView::TestCase
       assert_select 'label', text: I18n.t('activerecord.attributes.post.updated_at')
     end
 
+    reset_output_buffer!
     bootstrap_form_for post, readonly: true do |form|
       @output_buffer = form.label(:updated_at)
       assert_select 'label', text: I18n.t('activerecord.attributes.post.updated_at')

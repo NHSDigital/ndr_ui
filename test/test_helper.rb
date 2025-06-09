@@ -35,4 +35,12 @@ module ActiveSupport
   end
 end
 
+module ActionView
+  class TestCase
+    def reset_output_buffer!
+      @output_buffer = ActionView::OutputBuffer.new
+    end
+  end
+end
+
 require 'mocha/minitest'
