@@ -44,6 +44,10 @@
 * Display line breaks for readonly textarea fields
 * Bump jQuery to v3.0.0
 
+## 3.3.2 / 2025-06-09
+### Fixed
+* Support Ruby 3.2 and 3.3 and Rails 7.1 and 7.2 [backported from v4.1.1]
+
 ## 3.3.1 / 2022-12-01
 ### Fixed
 * Support Ruby 3.1 and Rails 7.0
