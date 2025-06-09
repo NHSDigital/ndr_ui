@@ -23,7 +23,7 @@ module NdrUi
     module FormControlClass
       def self.add_form_control_class(method_name)
         define_method(method_name) do |label, *args, &proc|
-          options = css_class_options_merge(args.extract_options!, %w(form-control))
+          options = css_class_options_merge(args.extract_options!, %w[form-control])
           super(label, *(args << options), &proc)
         end
       end
@@ -35,7 +35,7 @@ module NdrUi
           options      ||= {}
           html_options ||= {}
 
-          html_options = css_class_options_merge(html_options, %w(form-control))
+          html_options = css_class_options_merge(html_options, %w[form-control form-select])
           super(label, choices, options, html_options, &proc)
         end
       end
