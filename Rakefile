@@ -14,10 +14,10 @@ end
 #   rdoc.rdoc_files.include('lib/**/*.rb')
 # end
 
-load 'rails/tasks/statistics.rake'
-
-APP_RAKEFILE = File.expand_path('../test/dummy/Rakefile', __FILE__)
+APP_RAKEFILE = File.expand_path('test/dummy/Rakefile', __dir__)
 load 'rails/tasks/engine.rake'
+
+load 'rails/tasks/statistics.rake'
 
 Bundler::GemHelper.install_tasks
 

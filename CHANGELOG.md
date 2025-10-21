@@ -1,5 +1,6 @@
 ## [Unreleased]
-* no unreleased changes *
+### Fixed
+* Support Ruby 3.4, Rails 8.0
 
 ## 5.0.3 / 2025-03-07
 ### Fixed

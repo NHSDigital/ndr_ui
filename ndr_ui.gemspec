@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'bootstrap', '~> 5.3.3'
   spec.add_dependency 'dartsass-sprockets'
   spec.add_dependency 'jquery-rails', '~> 4.6'
-  spec.add_dependency 'rails', '>= 6.1', '< 7.3'
+  spec.add_dependency 'rails', '>= 6.1', '< 8.1'
   spec.add_dependency 'sprockets', '>= 4.0'
   spec.add_dependency 'sprockets-rails', '>= 3.0.0'
 
