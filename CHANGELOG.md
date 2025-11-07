@@ -30,6 +30,10 @@
 * include bootstrap-icons library
 * replace panel helpers to card helpers
 
+## 4.1.3 / 2025-11-07
+### Fixed
+* Support Ruby 3.4, Rails 8.0 [backported from v5.0.4]
+
 ## 4.1.2 / 2025-01-24
 ### Fixed
 * Bump bootstrap-datepicker to 1.7.1
