@@ -1,9 +1,38 @@
 ## [Unreleased]
 * no unreleased changes *
 
-## 4.1.3 / 2025-11-07
+## 5.0.4 / 2025-10-22
 ### Fixed
 * Support Ruby 3.4, Rails 8.0
+
+## 5.0.3 / 2025-03-07
+### Fixed
+* fix input group UI style in form and readonly mode
+
+## 5.0.2 / 2025-03-02
+### Fixed
+* add row class to horizontal form row (.form-group)
+* add `has-validation` class to input fields with addons
+
+## 5.0.1 / 2025-02-03
+### Fixed
+* fix cancel modal button
+* re-introduce `btn-default` style
+* fix `bootstrap_tab_nav_tag` helper method with required classes
+* allow more padding at the end for `bootstrap_list_badge_and_link_to`
+* fix offset class name in line with Bootstrap 5 upgrade
+* fix `bootstrap_alert_tag` style with close button option
+
+## 5.0.0 / 2025-01-24
+### Changed
+* Support Bootstrap to v5.3.3
+* Drop support for Bootstrap 3/4
+* include bootstrap-icons library
+* replace panel helpers to card helpers
+
+## 4.1.3 / 2025-11-07
+### Fixed
+* Support Ruby 3.4, Rails 8.0 [backported from v5.0.4]
 
 ## 4.1.2 / 2025-01-24
 ### Fixed
@@ -22,6 +51,10 @@
 * Support Ruby 3.2. Drop support for Ruby 2.7, Rails 6.0
 * Display line breaks for readonly textarea fields
 * Bump jQuery to v3.0.0
+
+## 3.3.2 / 2025-06-09
+### Fixed
+* Support Ruby 3.2 and 3.3 and Rails 7.1 and 7.2 [backported from v4.1.1]
 
 ## 3.3.1 / 2022-12-01
 ### Fixed

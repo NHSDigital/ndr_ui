@@ -6,10 +6,7 @@ module NdrUi
       options = options.symbolize_keys
       css_classes += options[:class].split(' ') if options.include?(:class)
       yield(css_classes) if block_given?
-      options[:class] = css_classes.join(' ') unless css_classes.empty?
-      unless css_classes == css_classes.uniq
-        fail "Multiple css class definitions: #{css_classes.inspect}"
-      end
+      options[:class] = css_classes.uniq.join(' ') unless css_classes.empty?
 
       options
     end

@@ -11,7 +11,7 @@ file safety:
   ".github/workflows/test.yml":
     comments:
     reviewed_by: brian.shand
-    safe_revision: 90aae17e8b058ea6e741281bd46967d55178fb88
+    safe_revision: c85a5d0ee425534b13af9512c371ff97447756f9
   ".gitignore":
     comments:
     reviewed_by: josh.pencheon
@@ -31,7 +31,7 @@ file safety:
   CHANGELOG.md:
     comments:
     reviewed_by: brian.shand
-    safe_revision: '0865a26e3b3f3f7b00e22d9e9193bcc5f3bc53db'
+    safe_revision: c85a5d0ee425534b13af9512c371ff97447756f9
   CODE_OF_CONDUCT.md:
     comments:
     reviewed_by: timgentry
@@ -50,8 +50,16 @@ file safety:
     safe_revision: 52899cd816d50be8530389323dd3a7ebbc53f96c
   Rakefile:
     comments:
-    reviewed_by: josh.pencheon
-    safe_revision: f30457db582abc8abb07d2acb3fc44bee4dffac2
+    reviewed_by: brian.shand
+    safe_revision: c85a5d0ee425534b13af9512c371ff97447756f9
+  app/assets/fonts/bootstrap-icons.woff:
+    comments:
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
+  app/assets/fonts/bootstrap-icons.woff2:
+    comments:
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   app/assets/images/ndr_ui/.keep:
     comments:
     reviewed_by: timgentry
@@ -87,7 +95,7 @@ file safety:
   app/assets/javascripts/ndr_ui/index.js:
     comments:
     reviewed_by: brian.shand
-    safe_revision: abecf4c1d0235080f3338b87267e0086f9236df7
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   app/assets/javascripts/ndr_ui/timeago.js:
     comments:
     reviewed_by: josh.pencheon
@@ -96,14 +104,18 @@ file safety:
     comments:
     reviewed_by: timgentry
     safe_revision: bad42dce29e241c5138cf113f9bce4fba59adb3d
+  app/assets/stylesheets/ndr_ui/bootstrap-icons.scss:
+    comments:
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   app/assets/stylesheets/ndr_ui/datepicker.scss:
     comments:
     reviewed_by: josh.pencheon
     safe_revision: 125f4cf38f0cb52eb698c075343104ebdf363701
   app/assets/stylesheets/ndr_ui/index.scss:
     comments:
-    reviewed_by: josh.pencheon
-    safe_revision: 1a916bd06eeae606edbef011521c55839c07dd23
+    reviewed_by: brian.shand
+    safe_revision: 8abc00b92b4b4157a1af1380568ea00124dd8561
   app/assets/stylesheets/ndr_ui/ndrs_styling.scss:
     comments:
     reviewed_by: kenny.lee
@@ -111,23 +123,23 @@ file safety:
   app/builders/ndr_ui/bootstrap/datepicker.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: ddb5546dae870e4c81ed51eeae76deb8242b66b0
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   app/builders/ndr_ui/bootstrap/error_and_warning_alert_boxes.rb:
     comments:
     reviewed_by: josh.pencheon
     safe_revision: 7833296abcb7e5a87e97bbb8bb43709a5b39428e
   app/builders/ndr_ui/bootstrap/form_control_class.rb:
     comments:
-    reviewed_by: timgentry
-    safe_revision: dad6f2c1d259182a7a588af25917af08abe4b5da
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   app/builders/ndr_ui/bootstrap/inline_errors_and_warnings.rb:
     comments:
-    reviewed_by: josh.pencheon
-    safe_revision: ad22f8d436d7bf66add24230fa31a17ccd19dc23
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   app/builders/ndr_ui/bootstrap/input_group_addons.rb:
     comments:
-    reviewed_by: josh.pencheon
-    safe_revision: '02568fa7e844a5379c1c0eabbd1068704b3094ef'
+    reviewed_by: brian.shand
+    safe_revision: f076f0118739010a8dcc12dda7120ca00474e11c
   app/builders/ndr_ui/bootstrap/label_tooltips.rb:
     comments:
     reviewed_by: brian.shand
@@ -135,11 +147,11 @@ file safety:
   app/builders/ndr_ui/bootstrap/readonly.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 8b6cc447d94ed52df8e196274e0a9952cb6d85af
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   app/builders/ndr_ui/bootstrap_builder.rb:
     comments:
-    reviewed_by: josh.pencheon
-    safe_revision: 6791b82a974af56b4cf894690059ea10d4572f99
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   app/controllers/.keep:
     comments:
     reviewed_by: timgentry
@@ -148,34 +160,34 @@ file safety:
     comments:
     reviewed_by: timgentry
     safe_revision: bad42dce29e241c5138cf113f9bce4fba59adb3d
-  app/helpers/ndr_ui/bootstrap/accordion.rb:
+  app/helpers/ndr_ui/bootstrap/accordion_helper.rb:
     comments:
-    reviewed_by: timgentry
-    safe_revision: 78f33f6f456cb12b4c90fb3863f4aef715bfcd43
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   app/helpers/ndr_ui/bootstrap/breadcrumbs_helper.rb:
     comments:
-    reviewed_by: josh.pencheon
-    safe_revision: d7dd955fa14bc43ce469dbfa6427416aaebfcd20
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
+  app/helpers/ndr_ui/bootstrap/card_helper.rb:
+    comments:
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   app/helpers/ndr_ui/bootstrap/dropdown_helper.rb:
     comments:
-    reviewed_by: timgentry
-    safe_revision: ae9fa9c98f7b489a37eb25c9a4819eb13649c99a
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   app/helpers/ndr_ui/bootstrap/modal_helper.rb:
     comments:
-    reviewed_by: josh.pencheon
-    safe_revision: a7239ec5d0c5c070304a6ce2a702445e6fbec967
-  app/helpers/ndr_ui/bootstrap/panel_helper.rb:
-    comments:
-    reviewed_by: timgentry
-    safe_revision: a513de22bfa6a4fa3e63ddd182636caf1ad10221
+    reviewed_by: brian.shand
+    safe_revision: f076f0118739010a8dcc12dda7120ca00474e11c
   app/helpers/ndr_ui/bootstrap_helper.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 90aae17e8b058ea6e741281bd46967d55178fb88
+    safe_revision: f076f0118739010a8dcc12dda7120ca00474e11c
   app/helpers/ndr_ui/css_helper.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 82337b8c769ae8ad748089c9e0b6f5222140d2df
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   app/helpers/ndr_ui/timeago_helper.rb:
     comments:
     reviewed_by: timgentry
@@ -207,11 +219,11 @@ file safety:
   gemfiles/Gemfile.rails61:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 90aae17e8b058ea6e741281bd46967d55178fb88
+    safe_revision: 12013057fc56d338d03f23a953cbb2beca86ab23
   gemfiles/Gemfile.rails70:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 90aae17e8b058ea6e741281bd46967d55178fb88
+    safe_revision: 12013057fc56d338d03f23a953cbb2beca86ab23
   gemfiles/Gemfile.rails71:
     comments:
     reviewed_by: brian.shand
@@ -220,6 +232,10 @@ file safety:
     comments:
     reviewed_by: brian.shand
     safe_revision: 90aae17e8b058ea6e741281bd46967d55178fb88
+  gemfiles/Gemfile.rails80:
+    comments:
+    reviewed_by: brian.shand
+    safe_revision: c85a5d0ee425534b13af9512c371ff97447756f9
   lib/ndr_ui.rb:
     comments:
     reviewed_by: josh.pencheon
@@ -227,7 +243,7 @@ file safety:
   lib/ndr_ui/engine.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: ddb5546dae870e4c81ed51eeae76deb8242b66b0
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   lib/ndr_ui/locale/en.yml:
     comments:
     reviewed_by: josh.pencheon
@@ -235,7 +251,7 @@ file safety:
   lib/ndr_ui/version.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: a39b0c6b14b2545e8aade38ce9d955c5246b11aa
+    safe_revision: 9af3bf3271ec219b4151042f5d75e8988f40f2bf
   lib/tasks/ndr_ui_tasks.rake:
     comments:
     reviewed_by: timgentry
@@ -251,23 +267,23 @@ file safety:
   ndr_ui.gemspec:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 90aae17e8b058ea6e741281bd46967d55178fb88
+    safe_revision: c85a5d0ee425534b13af9512c371ff97447756f9
   test/builders/ndr_ui/bootstrap_builder/datepicker_test.rb:
     comments:
-    reviewed_by: josh.pencheon
-    safe_revision: 829aeff8c326178834982426bf66a7cb0dd3b924
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   test/builders/ndr_ui/bootstrap_builder/error_and_warning_alert_boxes_test.rb:
     comments:
     reviewed_by: brian.shand
     safe_revision: 90aae17e8b058ea6e741281bd46967d55178fb88
   test/builders/ndr_ui/bootstrap_builder/inline_errors_and_warnings_test.rb:
     comments:
-    reviewed_by: kenny.lee
-    safe_revision: ec80ff5be51339222ea8af9ffa82b23baa4d0624
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   test/builders/ndr_ui/bootstrap_builder/input_group_addons_test.rb:
     comments:
-    reviewed_by: timgentry
-    safe_revision: '02568fa7e844a5379c1c0eabbd1068704b3094ef'
+    reviewed_by: brian.shand
+    safe_revision: f076f0118739010a8dcc12dda7120ca00474e11c
   test/builders/ndr_ui/bootstrap_builder/label_tooltips_test.rb:
     comments:
     reviewed_by: brian.shand
@@ -275,11 +291,11 @@ file safety:
   test/builders/ndr_ui/bootstrap_builder/readonly_test.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 90aae17e8b058ea6e741281bd46967d55178fb88
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   test/builders/ndr_ui/bootstrap_builder_test.rb:
     comments:
-    reviewed_by: timgentry
-    safe_revision: 6791b82a974af56b4cf894690059ea10d4572f99
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   test/controllers/posts_controller_test.rb:
     comments:
     reviewed_by: timgentry
@@ -476,26 +492,30 @@ file safety:
     comments:
     reviewed_by: timgentry
     safe_revision: bad42dce29e241c5138cf113f9bce4fba59adb3d
+  test/helpers/ndr_ui/bootstrap/accordion_helper_test.rb:
+    comments:
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   test/helpers/ndr_ui/bootstrap/breadcrumbs_helper_test.rb:
     comments:
-    reviewed_by: josh.pencheon
-    safe_revision: d7dd955fa14bc43ce469dbfa6427416aaebfcd20
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
+  test/helpers/ndr_ui/bootstrap/card_helper_test.rb:
+    comments:
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   test/helpers/ndr_ui/bootstrap/dropdown_helper_test.rb:
     comments:
-    reviewed_by: timgentry
-    safe_revision: ae9fa9c98f7b489a37eb25c9a4819eb13649c99a
+    reviewed_by: brian.shand
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   test/helpers/ndr_ui/bootstrap/modal_helper_test.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 90aae17e8b058ea6e741281bd46967d55178fb88
-  test/helpers/ndr_ui/bootstrap/panel_helper_test.rb:
-    comments:
-    reviewed_by: timgentry
-    safe_revision: 9a7ef451598ae1ef95fa1466ec63a1f5ce655dd5
+    safe_revision: 25923e01b12271733c0d5a0c223d821b9c6a3e8d
   test/helpers/ndr_ui/bootstrap_helper_test.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 90aae17e8b058ea6e741281bd46967d55178fb88
+    safe_revision: f076f0118739010a8dcc12dda7120ca00474e11c
   test/helpers/ndr_ui/css_helper_test.rb:
     comments:
     reviewed_by: timgentry
