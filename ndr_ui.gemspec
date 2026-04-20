@@ -1,11 +1,6 @@
 $LOAD_PATH.push File.expand_path('lib', __dir__)
 require 'ndr_ui/version'
 
-unless Gem::Version.new(Gem::VERSION) >= Gem::Version.new('3.0.2')
-  # See https://github.com/rubygems/rubygems/pull/2516 for details
-  raise 'Please update RubyGems to at least 3.0.2 - lower versions build a broken ndr_ui.gem!'
-end
-
 # We list development dependencies for all Rails versions here.
 # Rails version-specific dependencies can go in the relevant Gemfile.
 # rubocop:disable Gemspec/DevelopmentDependencies
@@ -21,14 +16,14 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   spec.files = Dir['{app,config,lib,vendor}/**/*', 'CHANGELOG.md', 'CODE_OF_CONDUCT.md',
-                   'LICENSE.txt', 'Rakefile', 'README.md'] - ['.travis.yml']
+                   'LICENSE.txt', 'Rakefile', 'README.md']
 
-  spec.required_ruby_version = '>= 3.0.0'
+  spec.required_ruby_version = '>= 3.2.0'
 
   spec.add_dependency 'bootstrap', '~> 5.3.3'
   spec.add_dependency 'dartsass-sprockets'
   spec.add_dependency 'jquery-rails', '~> 4.6'
-  spec.add_dependency 'rails', '>= 6.1', '< 8.1'
+  spec.add_dependency 'rails', '>= 7.1', '< 8.2'
   spec.add_dependency 'sprockets', '>= 4.0'
   spec.add_dependency 'sprockets-rails', '>= 3.0.0'
 
@@ -37,21 +32,8 @@ Gem::Specification.new do |spec|
   # cf. gemfiles/Gemfile.rails70
   spec.add_development_dependency 'sqlite3'
 
-  # Workaround build issue on GitHub Actions with ruby <= 3.1 when installing sass-embedded
-  # gem version 1.81.0: NoMethodError: undefined method `parse' for #<Psych::Parser...>
-  # https://bugs.ruby-lang.org/issues/19371
-  spec.add_development_dependency 'psych', '< 5'
-
-  # Workaround build issue on GitHub Actions with ruby <= 3.1 when installing sass-embedded
-  # Versions 1.77.0 and above require ruby >= 3.2 for packaged x86_64-linux binaries
-  # but say they're compatible with ruby 3.1.
-  # 1.76.0 has a bug that was fixed in 1.77.1, which we can't use yet.
-  # https://github.com/sass/dart-sass/issues/2239
-  spec.add_development_dependency 'sass-embedded', '~> 1.75.0' if RUBY_VERSION.start_with?('3.1') # rubocop:disable Gemspec/RubyVersionGlobalsUsage
-
-  spec.add_development_dependency 'mocha', '~> 2.0'
+  spec.add_development_dependency 'mocha', '~> 3.0'
   spec.add_development_dependency 'ndr_dev_support', '>= 6.0'
-  spec.add_development_dependency 'net-smtp'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'puma'
   spec.add_development_dependency 'rake'
