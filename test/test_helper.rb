@@ -15,11 +15,11 @@ Minitest.backtrace_filter = Minitest::BacktraceFilter.new
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 # Load fixtures from the engine
-if ActiveSupport::TestCase.respond_to?(:fixture_path=)
-  ActiveSupport::TestCase.fixture_path = File.expand_path('../fixtures', __FILE__)
-  ActionDispatch::IntegrationTest.fixture_path = ActiveSupport::TestCase.fixture_path
-  ActiveSupport::TestCase.fixtures :all
-end
+fixtures_dir = File.expand_path('fixtures', __dir__)
+ActiveSupport::TestCase.fixture_paths << fixtures_dir # Rails >= 7.1
+ActionDispatch::IntegrationTest.fixture_paths << fixtures_dir
+ActiveSupport::TestCase.file_fixture_path = "#{fixtures_dir}/files"
+ActiveSupport::TestCase.fixtures :all
 
 # Include all capybara + poltergeist config
 ENV['INTEGRATION_DRIVER'] ||= 'chrome_headless'
