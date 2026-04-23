@@ -4,14 +4,18 @@ file safety:
     comments:
     reviewed_by: brian.shand
     safe_revision: a7a6c5abde09cfc0018ba7e6e8ac415103b87087
+  ".github/dependabot.yml":
+    comments:
+    reviewed_by: brian.shand
+    safe_revision: 508230763a5767e961b23d6037308d0868474108
   ".github/workflows/lint.yml":
     comments:
     reviewed_by: brian.shand
-    safe_revision: 2d1466336a251d5aeb5fb5e8617e6b1c5c3194c2
+    safe_revision: e9f91937b685f7b5cd589f74b3eed9c9697e3c74
   ".github/workflows/test.yml":
     comments:
     reviewed_by: brian.shand
-    safe_revision: c85a5d0ee425534b13af9512c371ff97447756f9
+    safe_revision: e9f91937b685f7b5cd589f74b3eed9c9697e3c74
   ".gitignore":
     comments:
     reviewed_by: josh.pencheon
@@ -24,14 +28,10 @@ file safety:
     comments:
     reviewed_by: brian.shand
     safe_revision: 061f4f4276a00054a0f5c2e47cddb97f9eb4082c
-  ".travis.yml":
-    comments:
-    reviewed_by: brian.shand
-    safe_revision: ff406f88431f9b0bd46d162f3077ca7d94571af5
   CHANGELOG.md:
     comments:
     reviewed_by: brian.shand
-    safe_revision: c85a5d0ee425534b13af9512c371ff97447756f9
+    safe_revision: e9f91937b685f7b5cd589f74b3eed9c9697e3c74
   CODE_OF_CONDUCT.md:
     comments:
     reviewed_by: timgentry
@@ -216,14 +216,6 @@ file safety:
     comments:
     reviewed_by: josh.pencheon
     safe_revision: 6ea4b27ed8e3bc5f671f1858c7ecbd10d9a19d04
-  gemfiles/Gemfile.rails61:
-    comments:
-    reviewed_by: brian.shand
-    safe_revision: 12013057fc56d338d03f23a953cbb2beca86ab23
-  gemfiles/Gemfile.rails70:
-    comments:
-    reviewed_by: brian.shand
-    safe_revision: 12013057fc56d338d03f23a953cbb2beca86ab23
   gemfiles/Gemfile.rails71:
     comments:
     reviewed_by: brian.shand
@@ -236,6 +228,10 @@ file safety:
     comments:
     reviewed_by: brian.shand
     safe_revision: c85a5d0ee425534b13af9512c371ff97447756f9
+  gemfiles/Gemfile.rails81:
+    comments:
+    reviewed_by: brian.shand
+    safe_revision: e9f91937b685f7b5cd589f74b3eed9c9697e3c74
   lib/ndr_ui.rb:
     comments:
     reviewed_by: josh.pencheon
@@ -251,7 +247,7 @@ file safety:
   lib/ndr_ui/version.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 9af3bf3271ec219b4151042f5d75e8988f40f2bf
+    safe_revision: e50f7b3bcc8b54354975dc0007b19736638d9f9a
   lib/tasks/ndr_ui_tasks.rake:
     comments:
     reviewed_by: timgentry
@@ -267,7 +263,7 @@ file safety:
   ndr_ui.gemspec:
     comments:
     reviewed_by: brian.shand
-    safe_revision: c85a5d0ee425534b13af9512c371ff97447756f9
+    safe_revision: e9f91937b685f7b5cd589f74b3eed9c9697e3c74
   test/builders/ndr_ui/bootstrap_builder/datepicker_test.rb:
     comments:
     reviewed_by: brian.shand
@@ -539,7 +535,7 @@ file safety:
   test/test_helper.rb:
     comments:
     reviewed_by: brian.shand
-    safe_revision: 90aae17e8b058ea6e741281bd46967d55178fb88
+    safe_revision: e9f91937b685f7b5cd589f74b3eed9c9697e3c74
   vendor/assets/bootstrap-datepicker-1.7.1-dist/css/bootstrap-datepicker.css:
     comments:
     reviewed_by: brian.shand
