@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   spec.files = Dir['{app,config,lib,vendor}/**/*', 'CHANGELOG.md', 'CODE_OF_CONDUCT.md',
-                   'LICENSE.txt', 'Rakefile', 'README.md']
+                   'LICENSE.txt', 'Rakefile', 'README.md', 'SECURITY.md']
 
   spec.required_ruby_version = '>= 3.2.0'
 
