@@ -6,3 +6,6 @@ gem 'rails',  '~> 7.1.0'
 
 # sqlite3 2.x is not supported on ruby 3.0
 gem 'sqlite3', '~> 1.7'
+
+# Rails <= 8.0 does not support minitest 6
+gem 'minitest', '>= 5.11', '< 6.0'
