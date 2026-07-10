@@ -1,6 +1,9 @@
 ## [Unreleased]
+* no unreleased changes *
+
+## 4.1.4 / 2026-07-10
 ### Fixed
-* Support Rails 8.1, Ruby 4.0
+* Support Rails 8.1, Ruby 4.0 [backported from v5.0.5]
 
 ## 4.1.3 / 2025-11-07
 ### Fixed
