@@ -20,7 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 3.2.0'
 
-  spec.add_dependency 'bootstrap-sass', '~> 3.4.1'
+  spec.add_dependency 'bootstrap', '~> 5.3.3'
+  spec.add_dependency 'dartsass-sprockets'
   spec.add_dependency 'jquery-rails', '~> 4.6'
   spec.add_dependency 'rails', '>= 7.1', '< 8.2'
   spec.add_dependency 'sprockets', '>= 4.0'

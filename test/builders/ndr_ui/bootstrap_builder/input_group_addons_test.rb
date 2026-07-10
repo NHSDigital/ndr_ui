@@ -9,11 +9,11 @@ class InputGroupAddonsTest < ActionView::TestCase
     post = Post.new
     bootstrap_form_for post do |form|
       assert_dom_equal(
-        '<div class="input-group">' \
-        '<span class="input-group-addon">apples</span>' \
+        '<div class="input-group has-validation">' \
+        '<span class="input-group-text">apples</span>' \
         '<input id="post_id" name="post[id]" class="form-control" type="text" />' \
         '</div>' \
-        '<span class="help-block" data-feedback-for="post_id">' \
+        '<span class="form-text" data-feedback-for="post_id">' \
         '<span class="text-danger"></span>' \
         '<span class="text-warning"></span>' \
         '</span>',
@@ -26,11 +26,11 @@ class InputGroupAddonsTest < ActionView::TestCase
     post = Post.new
     bootstrap_form_for post do |form|
       assert_dom_equal(
-        '<div class="input-group">' \
+        '<div class="input-group has-validation">' \
         '<input id="post_id" name="post[id]" class="form-control" type="text" />' \
-        '<span class="input-group-addon">pears</span>' \
+        '<span class="input-group-text">pears</span>' \
         '</div>' \
-        '<span class="help-block" data-feedback-for="post_id">' \
+        '<span class="form-text" data-feedback-for="post_id">' \
         '<span class="text-danger"></span>' \
         '<span class="text-warning"></span>' \
         '</span>',
@@ -43,12 +43,12 @@ class InputGroupAddonsTest < ActionView::TestCase
     post = Post.new
     bootstrap_form_for post do |form|
       assert_dom_equal(
-        '<div class="input-group">' \
-        '<span class="input-group-addon">apples</span>' \
+        '<div class="input-group has-validation">' \
+        '<span class="input-group-text">apples</span>' \
         '<input id="post_id" name="post[id]" class="form-control" type="text" />' \
-        '<span class="input-group-addon">pears</span>' \
+        '<span class="input-group-text">pears</span>' \
         '</div>' \
-        '<span class="help-block" data-feedback-for="post_id">' \
+        '<span class="form-text" data-feedback-for="post_id">' \
         '<span class="text-danger"></span>' \
         '<span class="text-warning"></span>' \
         '</span>',

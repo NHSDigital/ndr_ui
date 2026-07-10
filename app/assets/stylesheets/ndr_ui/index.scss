@@ -1,19 +1,61 @@
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
 @import "bootstrap";
+
+//NOTE: font-dir: "." and "./assets" works, "./fonts" doesn't. may vary between systems
+$bootstrap-icons-font-dir: ".";
+@import "bootstrap-icons";
 
 // Fieldsets don't behave properly with Bootstrap in Firefox
 // https://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content/17863685#17863685
 @-moz-document url-prefix() {
-    fieldset {
-        display: table-cell;
-    }
+  fieldset {
+    display: table-cell;
+  }
 }
 
-// for input fields with input-addons, remove background and border when the form is readonly. 
-.input-group {
-  .form-control-static + .input-group-addon {
-    background: none;
-    border:0;
+// UI fix for form element in .input-group
+form .input-group {
+  // for readonly fields following or followed by input-addons, set auto width to display content in one line
+  .form-control-plaintext:has(+ .input-group-text),
+  .input-group-text + .form-control-plaintext {
+    width: auto;
   }
+
+  // for input-addons in readonly mode, reserve the border style for plain text and add more spacing on both sides
+  > .form-control-plaintext:has(+ .input-group-text),
+  > .input-group-text + .form-control-plaintext {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  // BS radius fix for elements in .input-group, as we added `.has-validation` class to .input-group by default
+  // remove right radius if an element is followed by another
+  // > .form-control in edit mode
+  .form-control:has(+ .input-group-text),
+  .input-group-text:has(+ .form-control) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  // > .form-control-plaintext in readonly mode
+  .form-control-plaintext:has(+ .input-group-text),
+  .input-group-text:has(+ .form-control-plaintext) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  // as a general global fix, ensure correct radius on first and last element
+  > :first-child {
+    border-top-left-radius: var(--bs-border-radius);
+    border-bottom-left-radius: var(--bs-border-radius);
+  }
+  > :last-child {
+    border-top-right-radius: var(--bs-border-radius);
+    border-bottom-right-radius: var(--bs-border-radius);
+  }
+}
+
+// Bootstrap don't have btn-default anymore
+// however, we keep btn-default in codebase/helpers and set global default setting here.
+.btn-default {
+  @extend .btn-outline-secondary;
 }
